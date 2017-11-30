@@ -1,0 +1,20 @@
+{
+  "name": "generator-iot-service",
+  "version": "1.0.0",
+  "description": "A Yeoman template for generating quickly a service project.",
+  "repository": "https://github.com/niktekusho/IoTDashboard",
+  "author": "Nicola Dal Maso",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "eslint": "^4.12.1",
+    "yeoman-generator": "^2.0.1"
+  },
+  "scripts": {
+    "eslint": "eslint",
+    "lint": "eslint generators"
+  }
+}
