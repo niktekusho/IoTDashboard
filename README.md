@@ -22,4 +22,4 @@ The system in its core is a control center thanks to which the user is able to m
 -   _link to device's proprietary interface (e.g. for technical support)._
 
 # Indice del repository/_Repository index_
--   [Template Servizi per Yeoman/_Services Template for Yeoman_](./generators-iot-service) - `./generators-iot-service`
+-   [Template Servizi per Yeoman/_Services Template for Yeoman_](./generator-iot-service) - `./generator-iot-service`
