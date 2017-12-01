@@ -17,4 +17,4 @@ yo iot-service
 
 ## License
 
-<%= license %> © [<%= author.name %>](<%= author.url %>)
+MIT © Nicola Dal Maso
