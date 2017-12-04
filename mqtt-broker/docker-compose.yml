@@ -1,0 +1,33 @@
+version: '2.1'
+
+services:
+  mqttdb:
+    container_name: mqttdb
+    image: mongo:latest
+    ports:
+      - "${PERSISTANCE_PORT}:27017" # HOST:CONTAINER
+    #environment:
+    #  - MONGO_INITDB_ROOT_USERNAME=mqtt
+    #  - MONGO_INITDB_ROOT_PASSWORD=mqtt1234
+    healthcheck:
+      test: exit 0
+  mqttbroker:
+    container_name: mqttbroker
+    build: .
+    environment:
+      - MQTT_PERSISTANCE=${MQTT_PERSISTANCE}
+      - PERSISTANCE_HOST=${PERSISTANCE_HOST}
+      - PERSISTANCE_PORT=${PERSISTANCE_PORT}
+      - PERSISTANCE_USER=${PERSISTANCE_USER}
+      - PERSISTANCE_PASSWORD=${PERSISTANCE_PASSWORD}
+      - MONGO_PERSISTANCE_COLLECTION=${MONGO_PERSISTANCE_COLLECTION}
+      - REDIS_DB_NUMBER=${REDIS_DB_NUMBER}
+      - MQTT_PORT=${MQTT_PORT}
+    ports:
+      - "${MQTT_PORT}:${MQTT_PORT}"
+    depends_on:
+      mqttdb:
+        condition: service_healthy
+    links:
+      - mqttdb
+    restart: on-failure
