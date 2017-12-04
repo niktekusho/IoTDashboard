@@ -10,7 +10,7 @@ module.exports = class extends Generator {
 			desc: 'Service name'
 		});
 
-		this.option('githubAccount', {
+		this.option('githubUsername', {
 			type: String,
 			required: false,
 			desc: 'GitHub username or organization',
@@ -24,6 +24,13 @@ module.exports = class extends Generator {
 			default: 'Nicola Dal Maso'
 		});
 
+		this.option('authorUrl', {
+			type: String,
+			required: false,
+			desc: 'Author URL',
+			default: 'https://github.com/niktekusho'
+		});
+
 		this.option('authorMail', {
 			type: String,
 			required: false,
@@ -31,61 +38,83 @@ module.exports = class extends Generator {
 			default: 'nicola.dalmaso@outlook.com'
 		});
 
-		this.option('license', {
-      type: String,
-      required: false,
-      desc: 'License',
-      default: 'MIT'
-    });
+		this.option('description', {
+			type: String,
+			required: false,
+			desc: 'Description'
+		});
 
-    this.option('private', {
-      type: Boolean,
-      required: true,
-      desc: 'Private'
-    });
+		this.option('license', {
+			type: String,
+			required: false,
+			desc: 'License',
+			default: 'MIT'
+		});
+
+		this.option('repositoryUrl', {
+			type: String,
+			required: false,
+			desc: 'Repository URL',
+			default: 'https://github.com/niktekusho/IoTDashboard'
+		});
+
+		this.option('private', {
+			type: Boolean,
+			required: true,
+			desc: 'Private'
+		});
+
+		this.props = Object.assign({}, this.options);
 	}
 
 	prompting() {
 		const prompts = [
-      {
-        name: 'name',
-        message: 'Service Name',
-        when: !this.options.name
-      },
-      {
-        name: 'version',
-        message: 'Version',
-        when: !this.options.version
-      },
-      {
-        name: 'description',
-        message: 'Description',
-        when: !this.options.description
-      },
-      {
-        name: 'repositoryUrl',
-        message: 'Repository URL',
-        when: !this.options.repositoryUrl
-      },
-      {
-        name: 'authorName',
-        message: 'Author name',
-        when: !this.options.authorName
-      },
-      {
-        name: 'license',
-        message: 'License',
-        when: !this.options.license
-      },
-      {
-        name: 'private',
-        message: 'Private',
-        when: !this.options.private
-      }
-    ];
+			{
+				name: 'name',
+				type: 'input',
+				message: 'Service Name',
+				when: !this.options.name
+			},
+			{
+				name: 'version',
+				type: 'input',
+				message: 'Version',
+				when: !this.options.version
+			},
+			{
+				name: 'description',
+				type: 'input',
+				message: 'Description',
+				when: !this.options.description
+			},
+			{
+				name: 'repositoryUrl',
+				type: 'input',
+				message: 'Repository URL',
+				when: !this.options.repositoryUrl
+			},
+			{
+				name: 'authorName',
+				type: 'input',
+				message: 'Author name',
+				when: !this.options.authorName
+			},
+			{
+				name: 'license',
+				type: 'input',
+				message: 'License',
+				when: !this.options.license
+			},
+			{
+				name: 'private',
+				type: 'confirm',
+				message: 'Private',
+				when: !this.options.private
+			}
+		];
 
-    return this.prompt(prompts)
-      .then(props => this.props = props);
+		return this.prompt(prompts)
+			.then(props => Object.assign(this.props, props));
 	}
 
 	default() {
