@@ -2,9 +2,14 @@
 
 # Template Servizi per Yeoman/_Services Template for Yeoman_
 
-## Installation
+## Installazione/_Installation_
+
+Aprire un terminale o un prompt dei comandi nella cartella in cui è stato clonato il repository e digitare i comandi seguenti:
+
+_Open a terminal or command prompt in the directory in which you cloned this repository and type in these commands:_
 
 ```sh
+cd generator-iot-service
 npm install
 npm link
 ```
