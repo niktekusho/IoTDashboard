@@ -21,5 +21,22 @@ The system in its core is a control center thanks to which the user is able to m
 -   _gathering devices' status (e.g. a light bulb: on/off, power usage, etc.);_
 -   _link to device's proprietary interface (e.g. for technical support)._
 
+
+# Prerequisiti/_Requirements_
+
+1.  Installazione di Node.js funzionante: [sito ufficiale](https://nodejs.org/)
+2.  Installazione di Docker funzionante: [sito ufficiale](https://www.docker.com/community-edition)
+3.  Installazione di git funzionante: [sito ufficiale](https://git-scm.com/)
+4.  **Opzionale**: installazione di Yarn funzionante: [sito ufficiale](https://yarnpkg.com/en/)
+5.  **Opzionale**: installazione di Yeoman funzionante: [sito ufficiale](http://yeoman.io)
+
+
+1.  _Working Node.js installation_ [official site](https://nodejs.org/)
+2.  _Working Docker installation_ [official site](https://www.docker.com/community-edition)
+3.  _Working git installation_ [official site](https://git-scm.com/)
+4.  _**Optional**: Working Yarn installation_ [official site](https://yarnpkg.com/en/)
+5.  _**Optional**: Working Yeoman installation_ [official site](https://yarnpkg.com/en/)
+
+
 # Indice del repository/_Repository index_
 -   [Template Servizi per Yeoman/_Services Template for Yeoman_](./generator-iot-service) - `./generator-iot-service`
