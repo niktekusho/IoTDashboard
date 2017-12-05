@@ -5,32 +5,51 @@ class ServiceManager {
 	constructor(mqtt) {
 		this.mqtt = mqtt;
 		this.curveFactory = new SineTemperatureCurveFactory();
-		// console.log(Object.getOwnPropertyNames(this.curveFactory));
-		// console.log(SineTemperatureCurveFactory.prototype);
+		this.hour = 0;
+		this.connected = false;
 	}
 
 	connect(brokerUrl) {
 		return new Promise((resolve, reject) => {
 			this.client = this.mqtt.connect(brokerUrl);
-			this.client.on('connect', () => resolve());
-			setTimeout(reject, 5000);
+			this.client.on('connect', () => {
+				resolve(this);
+				this.connected = true;
+			});
+			// setTimeout(reject, 5000);
 		});
 	}
 
-	start(params, addRandomness) {
-		this.interval = setInterval(this.publishFunction, params.sensorFrequency, params, addRandomness);
+	initialize(params, addRandomness) {
+		this.temperatureCurve = this.curveFactory.createCurve(params, addRandomness);
+		return this;
+	}
+
+	start() {
+		this.interval = setInterval(this.publish.bind(this), 1000);
 	}
 
 	stop() {
 		clearInterval(this.interval);
 	}
 
-	publishFunction(params, addRandomness) {
-		if (this.temperatureCurve == null) {
-			// console.log(this.curveFactory);
-			this.temperatureCurve = this.curveFactory.createCurve(params, addRandomness);
+	publish() {
+		const temperature = this.getTemperature();
+		if (this.connected) {
+			// TODO
+		} else {
+			console.log(temperature);
 		}
-		this.temperatureCurve.simulate();
+	}
+
+	getTemperature() {
+		if (this.hour === 24) {
+			this.hour = 0;
+		} else {
+			this.hour += 1;
+		}
+
+		return this.temperatureCurve.simulate(this.hour);
 	}
 }
 
