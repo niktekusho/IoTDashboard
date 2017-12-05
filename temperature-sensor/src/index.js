@@ -9,5 +9,3 @@ service.connect(`mqtt://${url}`)
 	.then(() => console.log(`Service connected to: ${url}`));
 
 service.initialize(settings.params, true).start();
-
-setTimeout(() => service.stop(), 50000);

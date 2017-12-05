@@ -16,7 +16,12 @@ class ServiceManager {
 				resolve(this);
 				this.connected = true;
 			});
-			// setTimeout(reject, 5000);
+			this.client.subscribe('shutdown');
+			this.client.on('message', (topic, message) => {
+				if (topic === 'shutdown') {
+					this.stop();
+				}
+			});
 		});
 	}
 
@@ -31,12 +36,13 @@ class ServiceManager {
 
 	stop() {
 		clearInterval(this.interval);
+		process.exit();
 	}
 
 	publish() {
 		const temperature = this.getTemperature();
 		if (this.connected) {
-			// TODO
+			this.client.publish('temperature', temperature.toString());
 		} else {
 			console.log(temperature);
 		}
