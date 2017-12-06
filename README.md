@@ -30,6 +30,7 @@ The system in its core is a control center thanks to which the user is able to m
 4.  **Opzionale**: installazione di Yarn funzionante: [sito ufficiale](https://yarnpkg.com/en/)
 5.  **Opzionale**: installazione di Yeoman funzionante: [sito ufficiale](http://yeoman.io)
 
+<p></p>
 
 1.  _Working Node.js installation_ [official site](https://nodejs.org/)
 2.  _Working Docker installation_ [official site](https://www.docker.com/community-edition)
