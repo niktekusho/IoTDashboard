@@ -28,21 +28,3 @@ server.on('published', (message, client) => {
 	// 	console.log(message.payload.toString());
 	// }
 });
-
-function cleanUp(reason) {
-	console.log('Stopping...');
-	console.log(reason);
-	const message = {
-		topic: 'shutdown',
-		payload: 'shutdown',
-		qos: 0,
-		retain: false,
-	};
-	server.publish(message, () => console.log('Shutdown command sent'));
-	server.close();
-	console.log('Stopped');
-}
-
-process.on('exit', cleanUp('normal exit'));
-
-process.on('SIGINT', cleanUp('CTRL + C'));

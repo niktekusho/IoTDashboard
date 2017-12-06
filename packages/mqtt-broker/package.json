@@ -18,6 +18,7 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
-    "mosca": "^2.7.0"
+    "mosca": "^2.7.0",
+    "redis": "^2.8.0"
   }
 }

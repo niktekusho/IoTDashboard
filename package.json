@@ -1,0 +1,21 @@
+{
+  "name": "iot-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/niktekusho/IoTDashboard",
+  "author": "Nicola Dal Maso",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "clean": "lerna clean --yes",
+    "coverage": "lerna run coverage",
+    "lerna": "lerna",
+    "lint": "lerna run lint",
+    "postinstall": "lerna bootstrap",
+    "refresh": "npm run clean && npm run bootstrap",
+    "test": "lerna run test"
+  },
+  "dependencies": {
+    "lerna": "^2.5.1"
+  }
+}

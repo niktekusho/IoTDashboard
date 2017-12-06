@@ -3,7 +3,7 @@ version: '2.1'
 services:
   mqttdb:
     container_name: mqttdb
-    image: mongo:latest
+    image: redis:4-alpine
     ports:
       - "${PERSISTANCE_PORT}:27017" # HOST:CONTAINER
     #environment:
