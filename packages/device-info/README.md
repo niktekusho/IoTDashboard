@@ -10,14 +10,26 @@ _Open a terminal or command prompt in the directory in which you cloned this rep
 
 ```sh
 npm install
+npm run lerna -- add device-info --scope=SERVICE
+npm run refresh
 ```
 
 ## Usage
 
+Il modulo espone la classe `DeviceInfo` per l'utilizzo con i servizi che la trattano.
+
+_This module publishes the class `DeviceInfo` for use in the appropriate services._
+
 ```js
-test
+const DeviceInfo = require('device-info');
+
+...
+
+const hw = new DeviceInfo({ manufacturer, model, revision, deviceClass, deviceId });
 ```
+
+
 
 ## License
 
-MIT ©  [Nicola Dal Maso](https://github.com/niktekusho) 
+MIT ©  [Nicola Dal Maso](https://github.com/niktekusho)
