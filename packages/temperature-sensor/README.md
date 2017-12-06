@@ -12,14 +12,32 @@ _Open a terminal or command prompt in the directory in which you cloned this rep
 npm install
 ```
 
-## Usage
+## Utilizzo/_Usage_
 
-```js
+### Esecuzione/_Run_
+
+```sh
+cd packages/temperature-sensor
 npm start
 ```
 
+### Analisi Statica/_Static Analysis_
 
-### Variabili d'ambiente disponibili/_Available environment variables_
+```sh
+cd packages/temperature-sensor
+npm run lint
+```
+
+### Test/_Tests_
+
+```sh
+cd packages/temperature-sensor
+npm test
+```
+
+
+
+## Variabili d'ambiente disponibili/_Available environment variables_
 
 È possibile scrivere un file `.env` in cui dare un valore alle seguenti variabili d'ambiente.
 
