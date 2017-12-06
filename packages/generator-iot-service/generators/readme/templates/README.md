@@ -9,7 +9,6 @@ Aprire un terminale o un prompt dei comandi nella cartella in cui è stato clona
 _Open a terminal or command prompt in the directory in which you cloned this repository and type in these commands:_
 
 ```sh
-cd <%= serviceName %>
 npm install
 ```
 

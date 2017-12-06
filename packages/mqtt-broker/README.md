@@ -10,14 +10,13 @@ _Open a terminal or command prompt in the directory in which you cloned this rep
 
 
 ```sh
-cd mqtt-broker
 npm install
 ```
 
 ## Utilizzo/_Usage_
 
 ```js
-test
+ss
 ```
 
 ### Variabili d'ambiente disponibili/_Available environment variables_
