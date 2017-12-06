@@ -17,5 +17,8 @@
   "scripts": {
     "eslint": "eslint",
     "lint": "eslint generators"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "^21.4.1"
   }
 }
