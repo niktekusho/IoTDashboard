@@ -125,6 +125,7 @@ module.exports = class extends Generator {
 			devDependencies: {
 				dotenv: '^4.0.0',
 				eslint: '^4.12.1',
+				'eslint-plugin-jest': '^21.4.1',
 				jest: '^21.2.1',
 			}
 		};
