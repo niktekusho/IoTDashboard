@@ -31,7 +31,7 @@ class ServiceManager {
 		});
 	}
 
-	initialize(device, params, addRandomness) {
+	initialize(params, addRandomness) {
 		this.temperatureCurve = this.curveFactory.createCurve(params, addRandomness);
 		return this;
 	}
@@ -55,7 +55,7 @@ class ServiceManager {
 	}
 
 	getTemperature() {
-		if (this.hour === 24) {
+		if (this.hour >= 24) {
 			this.hour = 0;
 		} else {
 			this.hour += 1;

@@ -10,6 +10,6 @@ const logger = pino();
 const service = new ServiceManager(mqtt, logger, settings.device);
 const url = `${settings.host}:${settings.port}`;
 service.connect(`mqtt://${url}`)
-	.then(() => pino.info(`Service connected to: ${url}`));
+	.then(() => logger.info(`Service connected to: ${url}`));
 
 service.initialize(settings.params, true).start();
