@@ -15,8 +15,40 @@ npm install
 
 ## Utilizzo/_Usage_
 
-```js
-ss
+Il metodo migliore per eseguire il broker MQTT è quello di utilizzare Docker Compose, in quanto esegue un'istanza del servizio di broker e un'istanza di Redis per abilitare le funzionalità offline.
+
+_The best method in order to run the MQTT broker is to use Docker Compose cause it will run an instance of the broker along side an instance of Redis to enable offline operability._
+
+### Comandi Docker Compose/_Docker Compose commands_
+
+Primo avvio:
+
+_First run:_
+
+
+```sh
+cd packages/mqtt-broker
+docker-compose up -d
+```
+
+
+Fermare i servizi:
+
+_Stop services:_
+
+```sh
+cd packages/mqtt-broker
+docker-compose stop
+```
+
+Resettare i servizi:
+
+_Resetting services:_
+
+
+```sh
+cd packages/mqtt-broker
+docker-compose up -d --force-recreate --build
 ```
 
 ### Variabili d'ambiente disponibili/_Available environment variables_
