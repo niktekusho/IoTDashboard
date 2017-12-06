@@ -14,6 +14,10 @@ npm install
 
 ## Utilizzo/_Usage_
 
+_Tutte le istruzioni seguenti valgono a partire dalla root del progetto clonato._
+
+_All the following instructions work from the cloned repository root._
+
 ### Esecuzione/_Run_
 
 ```sh
