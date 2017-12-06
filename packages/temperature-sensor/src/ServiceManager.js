@@ -1,13 +1,16 @@
+const DeviceInfo = require('device-info');
+
 const SineTemperatureCurveFactory = require('./SineTemperatureCurveFactory');
 
 class ServiceManager {
 
-	constructor(mqtt, logger) {
+	constructor(mqtt, logger, device) {
 		this.mqtt = mqtt;
 		this.curveFactory = new SineTemperatureCurveFactory();
 		this.hour = 0;
 		this.connected = false;
 		this.logger = logger;
+		this.device = new DeviceInfo(device);
 	}
 
 	connect(brokerUrl) {
@@ -15,6 +18,7 @@ class ServiceManager {
 			this.client = this.mqtt.connect(brokerUrl);
 			this.client.on('connect', () => {
 				resolve(this);
+				this.client.publish('hw_info', this.device.toJson());
 				this.connected = true;
 			});
 			this.client.subscribe('shutdown');
@@ -27,7 +31,7 @@ class ServiceManager {
 		});
 	}
 
-	initialize(params, addRandomness) {
+	initialize(device, params, addRandomness) {
 		this.temperatureCurve = this.curveFactory.createCurve(params, addRandomness);
 		return this;
 	}
