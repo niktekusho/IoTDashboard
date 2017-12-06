@@ -4,6 +4,7 @@
         "node": true
     },
     "extends": "eslint:recommended",
+	"plugins":["jest"],
     "rules": {
         "indent": [
             "error",

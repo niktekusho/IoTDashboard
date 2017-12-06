@@ -1,0 +1,12 @@
+{
+	"type": "node",
+	"request": "launch",
+	"name": "Jest Tests",
+	"program": "${workspaceRoot}\\packages\\device-info\\node_modules\\jest\\bin\\jest.js",
+	"args": [
+			"-i"
+	],
+	"preLaunchTask": "build",
+	"internalConsoleOptions": "openOnSessionStart",
+	"envFile": "${workspaceRoot}/.env"
+}
