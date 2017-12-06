@@ -2,15 +2,16 @@ const SineTemperatureCurveFactory = require('./SineTemperatureCurveFactory');
 
 class ServiceManager {
 
-	constructor(mqtt) {
+	constructor(mqtt, logger) {
 		this.mqtt = mqtt;
 		this.curveFactory = new SineTemperatureCurveFactory();
 		this.hour = 0;
 		this.connected = false;
+		this.logger = logger;
 	}
 
 	connect(brokerUrl) {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			this.client = this.mqtt.connect(brokerUrl);
 			this.client.on('connect', () => {
 				resolve(this);
@@ -18,6 +19,7 @@ class ServiceManager {
 			});
 			this.client.subscribe('shutdown');
 			this.client.on('message', (topic, message) => {
+				this.logger.info(message.toString());
 				if (topic === 'shutdown') {
 					this.stop();
 				}
@@ -44,7 +46,7 @@ class ServiceManager {
 		if (this.connected) {
 			this.client.publish('temperature', temperature.toString());
 		} else {
-			console.log(temperature);
+			this.logger.info(temperature);
 		}
 	}
 

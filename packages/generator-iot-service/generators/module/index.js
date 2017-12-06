@@ -111,7 +111,7 @@ module.exports = class extends Generator {
 			repository: this.props.repositoryUrl,
 			author: this.props.authorName,
 			license: this.props.license,
-			private: this.props.private ? 'true' : 'false',
+			private: this.props.private ? true : false,
 			scripts: {
 				eslint: 'eslint',
 				jest: 'jest',
@@ -119,9 +119,13 @@ module.exports = class extends Generator {
 				start: 'node src/index.js',
 				test: 'jest'
 			},
+			dependencies: {
+				pino: '^4.10.2'
+			},
 			devDependencies: {
+				dotenv: '^4.0.0',
 				eslint: '^4.12.1',
-				jest: '^21.2.1'
+				jest: '^21.2.1',
 			}
 		};
 

@@ -5,12 +5,14 @@ services:
     container_name: mqttdb
     image: redis:4-alpine
     ports:
-      - "${PERSISTANCE_PORT}:27017" # HOST:CONTAINER
+      - "${PERSISTANCE_PORT}:6379" # HOST:CONTAINER
     #environment:
     #  - MONGO_INITDB_ROOT_USERNAME=mqtt
     #  - MONGO_INITDB_ROOT_PASSWORD=mqtt1234
     healthcheck:
       test: exit 0
+    env_file: 
+     - compose.env
   mqttbroker:
     container_name: mqttbroker
     build: .
@@ -31,3 +33,5 @@ services:
     links:
       - mqttdb
     restart: on-failure
+    env_file: 
+     - compose.env
