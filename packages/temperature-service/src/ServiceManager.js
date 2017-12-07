@@ -1,7 +1,8 @@
 class ServiceManager {
 
-	constructor(mqtt, logger) {
+	constructor(mqtt, db, logger) {
 		this.mqtt = mqtt;
+		this.db = db;
 		this.log = logger;
 	}
 
@@ -9,12 +10,10 @@ class ServiceManager {
 		return new Promise((resolve) => {
 			this.client = this.mqtt.connect(brokerUrl);
 			this.client.on('connect', () => {
-				this.client.subscribe(['temperature', 'temperature/active', 'shutdown']);
+				this.client.subscribe(['temperature', 'temperature/active']);
 				this.client.on('message', (topic, message) => {
-					if (topic === 'shutdown') {
-						this.stop();
-					} else if (topic === 'temperature' || topic === 'temperature/active') {
-						this.log.info(message.toString());
+					if (topic === 'temperature' || topic === 'temperature/active') {
+						this.handleMessage(message);
 					}
 				});
 				resolve(this);
@@ -23,9 +22,8 @@ class ServiceManager {
 		});
 	}
 
-	stop() {
-		// TODO
-		process.exit();
+	handleMessage(topic, message) {
+		this.log.info(message.toString());
 	}
 }
 
