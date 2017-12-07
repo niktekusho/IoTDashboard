@@ -15,6 +15,12 @@
         "request": "launch",
         "name": "Test DeviceInfo",
         "program": "${workspaceFolder}/packages/device-info/node_modules/.bin/jest"
+			},
+			{
+        "type": "node",
+        "request": "launch",
+        "name": "Test TemperatureData",
+        "program": "${workspaceFolder}/packages/temperature-data/node_modules/.bin/jest"
 			}
     ]
 }
