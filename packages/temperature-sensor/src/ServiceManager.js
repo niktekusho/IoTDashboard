@@ -21,12 +21,8 @@ class ServiceManager {
 				this.client.publish('hw_info', this.device.toJson());
 				this.connected = true;
 			});
-			this.client.subscribe('shutdown');
 			this.client.on('message', (topic, message) => {
 				this.logger.info(message.toString());
-				if (topic === 'shutdown') {
-					this.stop();
-				}
 			});
 		});
 	}
