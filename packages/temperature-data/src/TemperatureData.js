@@ -12,7 +12,7 @@ class TemperatureData {
 	}
 
 	static fromMQTT(mqtt) {
-		const { topic, message } = mqtt;
+		const { message } = mqtt;
 		const payload = JSON.parse(message);
 		return new TemperatureData(payload);
 	}
