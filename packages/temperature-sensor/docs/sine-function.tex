@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{array}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\begin{document}
+\begin{equation}
+y(x) = A*sin(x * f + \theta) + B_{T} + R
+\end{equation}
+where:
+\begin{conditions}
+ y(x)   &  temperature at hour x \\
+ A      &  sine amplitude \\
+ x      &  hour of the day \\
+ f      &  sine frequency \\
+ \theta &  sine offset \\
+ B_{T}  &  base sensor temperature \\
+ R      &  \begin{cases}0\\1\end{cases} random
+\end{conditions}
+
+\end{document}
+
