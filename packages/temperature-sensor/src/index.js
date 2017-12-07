@@ -1,5 +1,9 @@
 const mqtt = require('mqtt');
 const pino = require('pino');
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 
 const ServiceManager = require('./ServiceManager');

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "device-info": "^1.0.0",
+    "dotenv": "^4.0.0",
     "mqtt": "^2.14.0",
     "pino": "^4.10.2",
     "shortid": "^2.2.8"
