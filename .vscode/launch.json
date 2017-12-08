@@ -7,6 +7,12 @@
 			{
 				"type": "node",
 				"request": "launch",
+				"name": "Launch Temperature Service",
+				"program": "${workspaceFolder}/packages/temperature-service/src/index.js"
+			},
+			{
+				"type": "node",
+				"request": "launch",
 				"name": "Launch Sensor",
 				"program": "${workspaceFolder}/packages/temperature-sensor/src/index.js"
 			},
