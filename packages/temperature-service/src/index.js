@@ -16,5 +16,8 @@ mongoose.connect(settings.db.url, (error) => {
 
 const service = new ServiceManager(mqtt, mongoose.connection, logger);
 const url = `${settings.host}:${settings.port}`;
+
+logger.info(url);
+
 service.connect(`mqtt://${url}`)
-	.then(() => logger.info(`Service connected to: ${url}`));
+	.then(() => logger.info(`Service connected to MQTT broker at: ${url}`));

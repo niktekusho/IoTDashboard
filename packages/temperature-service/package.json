@@ -19,8 +19,11 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
     "mongoose": "^4.13.6",
     "mqtt": "^2.14.0",
-    "pino": "^4.10.2"
+    "pino": "^4.10.2",
+    "temperature-data": "^1.0.0"
   }
 }

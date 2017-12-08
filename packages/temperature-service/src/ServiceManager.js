@@ -1,3 +1,5 @@
+const TemperatureData = require('temperature-data');
+
 class ServiceManager {
 
 	constructor(mqtt, db, logger) {
@@ -22,8 +24,9 @@ class ServiceManager {
 		});
 	}
 
-	handleMessage(topic, message) {
-		this.log.info(message.toString());
+	handleMessage(message) {
+		const data = TemperatureData.fromMQTT(message);
+		this.log.info(data);
 	}
 }
 

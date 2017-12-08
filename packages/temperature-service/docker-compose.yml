@@ -16,14 +16,6 @@ services:
   temperature:
     container_name: temperature
     build: .
-    environment:
-      - MQTT_HOST=${MQTT_HOST}
-      - MQTT_PORT=${MQTT_PORT}
-      - MONGO_HOST=${MONGO_HOST}
-      - MONGO_PORT=${MONGO_PORT}
-      - MONGO_USER=${MONGO_USER}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
-      - MONGO_DB_NAME=${MONGO_DB_NAME}
     depends_on:
       temperaturedb:
         condition: service_healthy
