@@ -1,12 +1,11 @@
 {
   "name": "temperature-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/TemperatureData.js",
-	"author": "Nicola Dal Maso",
-	"repository": "https://github.com/niktekusho/IoTDashboard",
+  "author": "Nicola Dal Maso",
+  "repository": "https://github.com/niktekusho/IoTDashboard",
   "license": "MIT",
-	"private": true,
-	"scripts": {
+  "scripts": {
     "eslint": "eslint",
     "jest": "jest",
     "lint": "eslint src/ test/",

@@ -11,9 +11,13 @@ class TemperatureData {
 		this.device = device;
 	}
 
-	static fromMQTT(mqtt) {
-		const { message } = mqtt;
-		const payload = JSON.parse(message);
+	static fromMQTT(message) {
+		let payload = message;
+		if (Buffer.isBuffer(message)) {
+			payload = message.toString();
+		}
+		payload = JSON.parse(payload);
+
 		return new TemperatureData(payload);
 	}
 

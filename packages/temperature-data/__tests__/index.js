@@ -54,11 +54,8 @@ test('Temperature fromMQQT', () => {
 		device: 'test',
 		temperature: 23.4,
 	};
-	const params = {
-		topic: 'temperature',
-		message: JSON.stringify(msg),
-	};
-	const data = TemperatureData.fromMQTT(params);
+	const message = JSON.stringify(msg);
+	const data = TemperatureData.fromMQTT(message);
 
 	expect(data).toMatchObject({ device: msg.device, temperature: msg.temperature });
 });
