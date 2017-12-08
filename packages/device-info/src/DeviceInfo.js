@@ -1,3 +1,5 @@
+const SensorSpec = require('./SensorSpec');
+
 class DeviceInfo {
 	constructor({manufacturer, model, revision, deviceClass, deviceId}) {
 		this.manufacturer = manufacturer;
@@ -9,11 +11,6 @@ class DeviceInfo {
 
 	get Manufacturer() {
 		return this.manufacturer;
-	}
-
-	set Manufacturer(manufacturer) {
-		this.manufacturer = manufacturer;
-		return this;
 	}
 
 	get Model() {
@@ -30,6 +27,14 @@ class DeviceInfo {
 
 	get DeviceId() {
 		return this.deviceId;
+	}
+
+	get SensorSpec() {
+		return this.spec;
+	}
+
+	set SensorSpec(spec) {
+		this.spec = spec;
 	}
 
 	toJson(pretty) {
