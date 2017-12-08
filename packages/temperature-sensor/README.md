@@ -60,6 +60,11 @@ _You can write a `.env` file with the following environment variables._
 | `SENSOR_REVISION`             | Indica la revisione del modello di sensore _virtualizzato_.                                            | `unknown`                           |
 | `SENSOR_CLASS`             | Indica la metrica che il sensore _virtualizzato_ misura.                                            | `temperature`                           |
 | `SENSOR_ID`             | Indica l'id univoco del sensore _virtualizzato_.                                            | [`shortid.generate()`](https://github.com/dylang/shortid)                           |
+| `SENSOR_RANGE`             | Indica l'intervallo di temperatura in cui il sensore funziona (°C). | `{ min: -10, max: 50 }`                            |
+| `SENSOR_ZERO`             | Indica un valore della scala di misura da interpretare come zero (°C). | `0`                            |
+| `SENSOR_RESOLUTION`             | Indica la più piccola differenza di temperatura rilevabile dal sensore (°C). | `0.001`                            |
+| `SENSOR_FREQUENCY_RESPONSE`             | Indica la frequenza di misura del sensore (Hz). | `1`                            |
+
 
 ## License
 
