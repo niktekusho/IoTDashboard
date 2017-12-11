@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-pino-logger": "^3.0.1",
     "mongoose": "^4.13.6",
     "mqtt": "^2.14.0",
     "pino": "^4.10.2",

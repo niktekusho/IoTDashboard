@@ -43,10 +43,15 @@ class ServiceManager {
 
 	publish() {
 		const temperature = this.getTemperature();
+		const device = this.device.DeviceId;
+		const message = JSON.stringify({
+			temperature,
+			device,
+		});
 		if (this.connected) {
-			this.client.publish('temperature', temperature.toString());
+			this.client.publish('temperature', message);
 		} else {
-			this.logger.info(temperature);
+			this.logger.info(message);
 		}
 	}
 

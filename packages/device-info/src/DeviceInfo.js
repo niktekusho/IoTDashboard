@@ -1,5 +1,3 @@
-const SensorSpec = require('./SensorSpec');
-
 class DeviceInfo {
 	constructor({manufacturer, model, revision, deviceClass, deviceId}) {
 		this.manufacturer = manufacturer;

@@ -1,20 +1,50 @@
 const mqtt = require('mqtt');
 const pino = require('pino');
-const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const pinoExpress = require('express-pino-logger');
 
 const ServiceManager = require('./ServiceManager');
+const DBClient = require('./DBClient');
 const settings = require('./settings');
+const temperaturesAPI = require('./api/temperatures');
 
 const logger = pino();
-mongoose.connect(settings.db.url, (error) => {
-	if (error) {
-		throw error;
-	}
+const expressLogger = pinoExpress({ logger });
 
-	logger.info(`Service connected to MongoDB instance running at: ${settings.db.url}`);
+const app = express();
+app.use(expressLogger);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/', temperaturesAPI);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
-const service = new ServiceManager(mqtt, mongoose.connection, logger);
+// error handler
+app.use(function(err, req, res) {
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	// res.locals.error = req.app.get('env') === 'development' ? err : {};
+	res.locals.error = err;
+
+	// render the error page
+	res.status(err.status || 500);
+	res.send('error');
+});
+
+app.listen(settings.api_port, () => {
+	logger.info(`Temperature service started at: ${settings.api_port}`);
+});
+
+DBClient(settings, logger);
+
+const service = new ServiceManager(mqtt, logger);
 const url = `${settings.host}:${settings.port}`;
 
 logger.info(url);
