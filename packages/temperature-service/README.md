@@ -71,10 +71,10 @@ _You can write a `.env` file with the following environment variables._
 
 ### API sincrona
 
-| Endpoint   | Metodo HTTP | Risposte                                                                 | Descrizione                                                                              |
-| ---------- | ----------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| `/`        | `GET`       | `200`: `Array[TemperatureData]`                                          | Ottiene tutte le rilevazioni presenti nel database del servizio.                         |
-| `/device/` | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'id del dispositivo specificato. |
+| Endpoint            | Metodo HTTP | Risposte                                                                           | Descrizione                                                                              |
+|---------------------|-------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| `/`                 | `GET`       | `200`: `Array[TemperatureData]`                                                    | Ottiene tutte le rilevazioni presenti nel database del servizio.                         |
+| `/device/:deviceId` | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'id del dispositivo specificato. |
 
 
 
