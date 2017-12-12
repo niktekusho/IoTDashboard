@@ -18,6 +18,44 @@ npm install
 test
 ```
 
+## Variabili d'ambiente disponibili/_Available environment variables_
+
+È possibile scrivere un file `.env` in cui dare un valore alle seguenti variabili d'ambiente.
+
+_You can write a `.env` file with the following environment variables._
+
+| Variabile/_Variable_ | Descrizione/_Description_                                            | Valore di default/_Default value_ |
+| -------------------- | -------------------------------------------------------------------- | --------------------------------- |
+| `MQTT_HOST`          | Indica in quale host è in esecuzione il broker MQTT.                 | `localhost`                       |
+| `MQTT_PORT`          | Indica a quale porta risponde il broker MQTT.                        | `1883`                            |
+| `API_PORT`           | Indica la porta alla quale le api del servizio rispondono.           | `3001`                            |
+| `MONGO_HOST`         | Indica in quale host è in esecuzione il database MongoDB.            | `localhost`                       |
+| `MONGO_PORT`         | Indica la porta alla quale il database MongoDB risponde.             | `27018`                           |
+| `MONGO_USER`         | Indica il nome utente con cui collegarsi al database MongoDB.        | `root`                            |
+| `MONGO_PASSWORD`     | Indica la password associata all'utente di cui sopra.                | `root`                            |
+| `MONGO_DB_NAME`      | Indica il nome del daatbase MongoDB in cui salvare e leggere i dati. | `devices`                         |
+
+
+## API del servizio/_Service's API_
+
+### Modelli/_Models_
+
+#### TemperatureData
+
+| Proprietà/_Property_ | Tipo/_Type_ | Descrizione/_Description_                                                                                            |
+| -------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| `temperature`        | `Number`    | Temperatura ricevuta dai sensori in gradi Centigradi (°C).                                                           |
+| `device`             | `String`    | Id del dispositivo che ha inviato la misurazione.                                                                    |
+| `created_at`         | `Date`      | Data di salvataggio della misurazione. In condizioni normali corrisponde alla data di rilevazione della misurazione. |
+
+### API sincrona
+
+| Endpoint            | Metodo HTTP | Risposte                                                                           | Descrizione                                                                              |
+|---------------------|-------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| `/`                 | `GET`       | `200`: `Array[TemperatureData]`                                                    | Ottiene tutte le rilevazioni presenti nel database del servizio.                         |
+| `/device/:deviceId` | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'id del dispositivo specificato. |
+| `/:from/:to`        | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li><li>`406`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'intervallo di date specificato. Le date devono essere inserite in formato ISO. |
+
 ## License
 
-MIT ©  [Nicola Dal Maso](https://github.com/niktekusho) 
+MIT ©  [Nicola Dal Maso](https://github.com/niktekusho)

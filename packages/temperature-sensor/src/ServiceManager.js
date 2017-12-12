@@ -1,4 +1,4 @@
-const DeviceInfo = require('device-info');
+const { DeviceInfo, SensorSpec } = require('device-info');
 
 const SineTemperatureCurveFactory = require('./SineTemperatureCurveFactory');
 
@@ -11,6 +11,7 @@ class ServiceManager {
 		this.connected = false;
 		this.logger = logger;
 		this.device = new DeviceInfo(device);
+		this.device.SensorSpec = new SensorSpec(device);
 	}
 
 	connect(brokerUrl) {

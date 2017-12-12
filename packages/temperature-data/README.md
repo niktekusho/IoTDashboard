@@ -18,7 +18,7 @@ npm run refresh
 
 Il modulo espone la classe `TemperatureData` per l'utilizzo con i servizi che la trattano.
 
-_This module publishes the class `DeviceInfo` for use in the appropriate services._
+_This module publishes the class `TemperatureData` for use in the appropriate services._
 
 ```js
 const TemperatureData = require('temperature-data');

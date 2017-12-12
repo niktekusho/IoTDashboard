@@ -10,12 +10,18 @@
     "eslint": "eslint",
     "jest": "jest",
     "lint": "eslint src/ test/",
-    "start": "node src/index.js",
+    "start": "node src/index.js | pino",
     "test": "jest"
   },
   "dependencies": {
-    "pino": "^4.10.2"
-  },
+		"body-parser": "^1.18.2",
+		"device-info": "^1.0.0",
+    "express": "^4.16.2",
+    "express-pino-logger": "^3.0.1",
+    "mongoose": "^4.13.6",
+    "mqtt": "^2.14.0",
+		"pino": "^4.10.2"
+	},
   "devDependencies": {
     "dotenv": "^4.0.0",
     "eslint": "^4.12.1",
