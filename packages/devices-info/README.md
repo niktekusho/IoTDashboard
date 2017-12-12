@@ -40,21 +40,35 @@ _You can write a `.env` file with the following environment variables._
 
 ### Modelli/_Models_
 
-#### TemperatureData
+#### DeviceInfo
 
-| Proprietà/_Property_ | Tipo/_Type_ | Descrizione/_Description_                                                                                            |
-| -------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------- |
-| `temperature`        | `Number`    | Temperatura ricevuta dai sensori in gradi Centigradi (°C).                                                           |
-| `device`             | `String`    | Id del dispositivo che ha inviato la misurazione.                                                                    |
-| `created_at`         | `Date`      | Data di salvataggio della misurazione. In condizioni normali corrisponde alla data di rilevazione della misurazione. |
+| Proprietà/_Property_ | Tipo/_Type_  | Descrizione/_Description_                                                 |
+| -------------------- | ------------ | ------------------------------------------------------------------------- |
+| `Manufacturer`       | `String`     | Nome del produttore del dispositivo.                                      |
+| `Model`              | `String`     | Nome assegnato dal produttore al dispositivo.                             |
+| `Revision`           | `String`     | Revisione del dispositivo.                                                |
+| `DeviceClass`        | `String`     | Categoria di utilizzo del dispositivo (temperatura, illuminazione, ecc.). |
+| `DeviceId`           | `String`     | Identificativo del dispositivo.                                           |
+| `SensorSpec`         | `SensorSpec` | Oggetto contenente informazioni specifiche sul funzionamento del sensore. |
+
+#### SensorSpec
+
+| Proprietà/_Property_ | Tipo/_Type_ | Descrizione/_Description_                                                              |
+| -------------------- | ----------- | -------------------------------------------------------------------------------------- |
+| `Range`              | `Object`    | Condizioni di funzionamento del dispositivo. Struttura: `{ min: Number, max: Number }` |
+| `Zero`               | `Number`    | Valore in cui il dispositivo rileva lo zero.                                           |
+| `Resolution`         | `Number`    | La più piccola unità di misura rilevabile dal sensore.                                 |
+| `Frequency`          | `Number`    | Numero di misurazioni al secondo (Hz).                                                 |
 
 ### API sincrona
 
-| Endpoint            | Metodo HTTP | Risposte                                                                           | Descrizione                                                                              |
-|---------------------|-------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| `/`                 | `GET`       | `200`: `Array[TemperatureData]`                                                    | Ottiene tutte le rilevazioni presenti nel database del servizio.                         |
-| `/device/:deviceId` | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'id del dispositivo specificato. |
-| `/:from/:to`        | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li><li>`406`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'intervallo di date specificato. Le date devono essere inserite in formato ISO. |
+| Endpoint            | Metodo HTTP | Risposte                                                                      | Descrizione                                                                                  |
+|---------------------|-------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `/`                 | `GET`       | `200`: `Array[DeviceInfo]`                                                    | Ottiene tutti i dispositivi presenti nel database del servizio (collegati almeno una volta). |
+| `/device/:deviceId` | `GET`       | <ul><li>`200`: `Array[DeviceInfo]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le informazioni per l'id del dispositivo specificato.                          |
+| `/classes`          | `GET`       | `200`: `Array[String]`                                                        | Ottiene tutte le categorie di dispositivi presenti a database.                               |
+| `/classes/:class`   | `GET`       | <ul><li>`200`: `Array[DeviceInfo]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutti i dispositivi presenti a database con la categoria specificata.                |
+
 
 ## License
 

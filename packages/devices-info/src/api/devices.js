@@ -26,7 +26,7 @@ router.get('/classes', (req, res) => {
 	});
 });
 
-router.get('/class/:class', (req, res) => {
+router.get('/classes/:class', (req, res) => {
 	const deviceClass = req.params.class;
 	devices.find({ deviceClass }, (err, devices) => {
 		if (devices.length > 0) {
