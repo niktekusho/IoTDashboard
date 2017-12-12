@@ -26,8 +26,8 @@ router.get('/:from/:to', (req, res) => {
 	const from = req.params.from;
 	const to = req.params.to;
 
-	const fromDate = new Date(from);
-	const toDate = new Date(to);
+	const fromDate = new Date(from).toISOString();
+	const toDate = new Date(to).toISOString();
 
 	if (fromDate > toDate) {
 		return res.status(406).send('Wrong from and to parameters.');

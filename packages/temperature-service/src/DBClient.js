@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 function dbClient(settings, logger) {
-	mongoose.connect(settings.db.url, (error) => {
+	mongoose.connect(settings.db.url, { useMongoClient: true }, (error) => {
 		if (error) {
 			throw error;
 		}
