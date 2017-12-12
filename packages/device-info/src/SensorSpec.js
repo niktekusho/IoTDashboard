@@ -1,9 +1,14 @@
 class SensorSpec {
 	constructor({ range, zero, resolution, frequency }) {
-		if (range.min == null || range.max == null) {
+		let _range = range;
+		if(typeof range === 'string') {
+			_range = JSON.parse(range);
+		}
+
+		if (_range.min == null || _range.max == null) {
 			throw new Error('Range format is not valid. It must be: {min:#, max:#}');
 		}
-		this.range = range;
+		this.range = _range;
 
 		if (typeof zero === 'string') {
 			this.zero = parseFloat(zero);
