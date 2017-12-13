@@ -10,7 +10,7 @@ function getHost() {
 }
 
 function getPort() {
-	return _helper('MONGO_PORT', 27018);
+	return _helper('MONGO_PORT', 30031);
 }
 
 function getUser() {
