@@ -12,10 +12,31 @@ _Open a terminal or command prompt in the directory in which you cloned this rep
 npm install
 ```
 
-## Usage
+## Utilizzo/_Usage_
 
-```js
-test
+_Tutte le istruzioni seguenti valgono a partire dalla root del progetto clonato._
+
+_All the following instructions work from the cloned repository root._
+
+### Esecuzione/_Run_
+
+```sh
+cd packages/<%= serviceName %>
+npm start
+```
+
+### Analisi Statica/_Static Analysis_
+
+```sh
+cd packages/<%= serviceName %>
+npm run lint
+```
+
+### Test/_Tests_
+
+```sh
+cd packages/<%= serviceName %>
+npm test
 ```
 
 ## License
