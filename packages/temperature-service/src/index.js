@@ -3,6 +3,7 @@ const pino = require('pino');
 const express = require('express');
 const bodyParser = require('body-parser');
 const pinoExpress = require('express-pino-logger');
+const mongoose = require('mongoose');
 
 const ServiceManager = require('./ServiceManager');
 const DBClient = require('./DBClient');
@@ -42,7 +43,7 @@ app.listen(settings.api_port, () => {
 	logger.info(`Temperature service started at: ${settings.api_port}`);
 });
 
-DBClient(settings, logger);
+DBClient(mongoose, settings, logger);
 
 const service = new ServiceManager(mqtt, logger);
 const url = `${settings.host}:${settings.port}`;

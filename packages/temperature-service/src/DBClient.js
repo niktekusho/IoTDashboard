@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-
-function dbClient(settings, logger) {
+function dbClient(mongoose, settings, logger) {
 	mongoose.connect(settings.db.url, { useMongoClient: true }, (error) => {
 		if (error) {
 			throw error;
@@ -15,6 +13,5 @@ function dbClient(settings, logger) {
 
 	mongoose.Promise = global.Promise;
 }
-
 
 module.exports = dbClient;

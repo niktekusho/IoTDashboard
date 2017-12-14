@@ -22,7 +22,7 @@ function getPassword() {
 }
 
 function getDataBase() {
-	return _helper('MONGO_DB_NAME', 'temperature');
+	return _helper('MONGO_DB_NAME', 'temperatureservice');
 }
 
 module.exports = {
