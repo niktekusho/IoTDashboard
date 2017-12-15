@@ -19,6 +19,18 @@
 			{
 				"type": "node",
 				"request": "launch",
+				"name": "Launch Lighting Service",
+				"program": "${workspaceFolder}/packages/lighting-service/src/index.js"
+			},
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Launch Lamp",
+				"program": "${workspaceFolder}/packages/smart-lamp/src/index.js"
+			},
+			{
+				"type": "node",
+				"request": "launch",
 				"name": "Launch Sensor",
 				"program": "${workspaceFolder}/packages/temperature-sensor/src/index.js"
 			},
@@ -45,6 +57,15 @@
 				"request": "launch",
 				"name": "Test TemperatureService",
 				"program": "${workspaceRoot}/packages/temperature-service/node_modules/jest/bin/jest.js",
+				"args": [
+					"-i"
+				]
+			},
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Test Smart Lamp",
+				"program": "${workspaceRoot}/packages/smart-light-bulb/node_modules/jest/bin/jest.js",
 				"args": [
 					"-i"
 				]

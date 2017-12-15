@@ -1,6 +1,6 @@
 {
-  "name": "smart-light-bulb",
-  "version": "1.0.0",
+  "name": "lighting-service",
+  "version": "",
   "description": "",
   "repository": "https://github.com/niktekusho/IoTDashboard",
   "author": "Nicola Dal Maso",
@@ -14,6 +14,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-pino-logger": "^3.0.1",
+    "mongoose": "^4.13.7",
+    "mqtt": "^2.15.0",
     "pino": "^4.10.2"
   },
   "devDependencies": {
