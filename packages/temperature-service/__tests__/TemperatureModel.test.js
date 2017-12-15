@@ -1,4 +1,4 @@
-const mockingoose = require('mockingoose');
+const mockingoose = require('mockingoose').default;
 const TemperatureModel = require('../src/TemperatureModel');
 
 describe('Temperature mongoose model', () => {
