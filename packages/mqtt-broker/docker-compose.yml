@@ -11,20 +11,11 @@ services:
     #  - MONGO_INITDB_ROOT_PASSWORD=mqtt1234
     healthcheck:
       test: exit 0
-    env_file: 
+    env_file:
      - compose.env
   mqttbroker:
     container_name: mqttbroker
     build: .
-    environment:
-      - MQTT_PERSISTANCE=${MQTT_PERSISTANCE}
-      - PERSISTANCE_HOST=${PERSISTANCE_HOST}
-      - PERSISTANCE_PORT=${PERSISTANCE_PORT}
-      - PERSISTANCE_USER=${PERSISTANCE_USER}
-      - PERSISTANCE_PASSWORD=${PERSISTANCE_PASSWORD}
-      - MONGO_PERSISTANCE_COLLECTION=${MONGO_PERSISTANCE_COLLECTION}
-      - REDIS_DB_NUMBER=${REDIS_DB_NUMBER}
-      - MQTT_PORT=${MQTT_PORT}
     ports:
       - "${MQTT_PORT}:${MQTT_PORT}"
     depends_on:
@@ -33,5 +24,5 @@ services:
     links:
       - mqttdb
     restart: on-failure
-    env_file: 
+    env_file:
      - compose.env
