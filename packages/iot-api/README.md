@@ -39,6 +39,12 @@ cd packages/ iot-api
 npm test
 ```
 
+## API del servizio/_Service's API_
+
+### API sincrona: _/temperature_
+
+-  `/temperature` - [info](../temperature-service/README.md#API-sincrona)
+
 ## License
 
-MIT ©  [Nicola Dal Maso](https://github.com/niktekusho) 
+MIT ©  [Nicola Dal Maso](https://github.com/niktekusho)
