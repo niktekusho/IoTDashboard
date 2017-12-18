@@ -5,7 +5,7 @@ services:
     container_name: temperaturedb
     image: mongo:3.4
     ports:
-      - "${MONGO_PORT}:27017" # HOST:CONTAINER
+      - "27017:27017" # HOST:CONTAINER
     #environment:
     #  - MONGO_INITDB_ROOT_USERNAME=mqtt
     #  - MONGO_INITDB_ROOT_PASSWORD=mqtt1234
@@ -16,6 +16,8 @@ services:
   temperature:
     container_name: temperature
     build: .
+    ports:
+      - "3000:3000" # HOST:CONTAINER
     depends_on:
       temperaturedb:
         condition: service_healthy
