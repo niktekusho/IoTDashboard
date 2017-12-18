@@ -43,7 +43,7 @@ npm test
 
 ### API sincrona: _/temperature_
 
--  `/temperature` - [info](../temperature-service/README.md#API-sincrona)
+-  `/temperature` - [info](../temperature-service/README.md#api-sincrona)
 
 ## License
 
