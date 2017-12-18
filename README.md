@@ -43,3 +43,8 @@ The system in its core is a control center thanks to which the user is able to m
 -   [Template Servizi per Yeoman/_Services Template for Yeoman_](./packages/generator-iot-service) - `./packages/generator-iot-service`
 -   [MQTT Broker](./packages/mqtt-broker) - `./packages/mqtt-broker`
 -   [Sensore di temperatura _virtualizzato_/_Virtualized Temperature Sensor_](./packages/temperature-sensor) - `./packages/temperature-sensor`
+-   [Servizio temperatura /_Temperature Service_](./packages/temperature-service) - `./packages/temperature-service`
+-   [Lampada _virtualizzata_/_Virtualized Lamp_](./packages/smart-lamp) - `./packages/smart-lamp`
+-   [Servizio illuminazione/_Lighting Service_](./packages/lighting-service) - `./packages/lighting-service`
+-   [Servizio informazioni dispositivi/_Devices Info Service_](./packages/devices-info) - `./packages/devices-info`
+-   [Servizio _Gateway_ delle API/_API Gateway Service_](./packages/iot-api) - `./packages/iot-api`
