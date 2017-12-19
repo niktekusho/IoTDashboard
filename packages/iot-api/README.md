@@ -39,6 +39,27 @@ cd packages/ iot-api
 npm test
 ```
 
+## Variabili d'ambiente disponibili/_Available environment variables_
+
+È possibile scrivere un file `.env` in cui dare un valore alle seguenti variabili d'ambiente.
+
+_You can write a `.env` file with the following environment variables._
+
+host: helper('', ''),
+port: helper('DEVICES_PORT', 3001),
+
+| Variabile/_Variable_ | Descrizione/_Description_                                            | Valore di default/_Default value_ |
+| -------------------- | -------------------------------------------------------------------- | --------------------------------- |
+| `API_PORT`           | Indica la porta alla quale le api del servizio rispondono.           | `8000`                            |
+| `DEVICES_HOST`       | Indica in quale host è in esecuzione il servizio `Devices Info`.     | `localhost`                       |
+| `DEVICES_PORT`       | Indica la porta alla quale il servizio `Devices Info` risponde.      | `3000`                           |
+| `LIGHTING_HOST`         | Indica in quale host è in esecuzione il servizio `Lighting`.        | `localhost`                            |
+| `LIGHTING_PORT`     | Indica la porta alla quale il servizio `Lighting` risponde.                | `4000`                            |
+| `TEMPERATURES_HOST`       | Indica in quale host è in esecuzione il servizio `Temperature`.     | `localhost`                       |
+| `TEMPERATURES_PORT`       | Indica la porta alla quale il servizio `Temperature` risponde.      | `5000`                           |
+
+
+
 ## API del servizio/_Service's API_
 
 ### API sincrona: _/temperature_

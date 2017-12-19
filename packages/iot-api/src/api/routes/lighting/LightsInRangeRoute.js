@@ -1,6 +1,6 @@
-const TemperatureRoute = require('./TemperatureRoute');
+const LightingRoute = require('./LightingRoute');
 
-class TemperaturesInRangeRoute extends TemperatureRoute {
+class LightsInRangeRoute extends LightingRoute {
 	method() {
 		return 'get';
 	}
@@ -10,7 +10,7 @@ class TemperaturesInRangeRoute extends TemperatureRoute {
 	}
 
 	routeFunction(req, res) {
-		const url = `${this.temperatureService}/${req.params.from}/${req.params.to}`;
+		const url = `${this.lightingService}/${req.params.from}/${req.params.to}`;
 		this.request.get(url, function (error, response) {
 			if (error) {
 				return res.status(500).send(error);
@@ -21,4 +21,4 @@ class TemperaturesInRangeRoute extends TemperatureRoute {
 	}
 }
 
-module.exports = TemperaturesInRangeRoute;
+module.exports = LightsInRangeRoute;
