@@ -17,7 +17,7 @@ services:
     container_name: temperature
     build: .
     ports:
-      - "3000:3000" # HOST:CONTAINER
+      - "5000:5000" # HOST:CONTAINER
     depends_on:
       temperaturedb:
         condition: service_healthy
