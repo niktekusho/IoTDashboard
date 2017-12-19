@@ -10,6 +10,12 @@
 				"name": "Launch API Gateway",
 				"program": "${workspaceFolder}/packages/iot-api/src/index.js"
 			},
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Launch User preference",
+				"program": "${workspaceFolder}/packages/user-service/src/index.js"
+			},
       {
 				"type": "node",
 				"request": "launch",
