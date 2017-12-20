@@ -26,6 +26,7 @@ class ServiceManager {
 
 	handleMessage(message) {
 		const messageString = message.toString();
+		this.log.info(messageString);
 		const data = JSON.parse(messageString);
 		const device = new DeviceInfo(data);
 		device.SensorSpec = new SensorSpec(data.spec);

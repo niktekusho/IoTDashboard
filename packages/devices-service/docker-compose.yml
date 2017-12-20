@@ -13,7 +13,7 @@ services:
   devices:
     build: .
     ports:
-      - "5000:${API_PORT}" # HOST:CONTAINER
+      - "3000:${API_PORT}" # HOST:CONTAINER
     depends_on:
       devicesdb:
         condition: service_healthy
@@ -22,5 +22,10 @@ services:
     restart: on-failure
     env_file:
       - compose.env
-
+    networks:
+      - mqttbroker_default
+      - default
+networks:
+  mqttbroker_default:
+    external: true
 

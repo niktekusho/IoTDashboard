@@ -1,6 +1,6 @@
 [_Torna al documento precedente/Back_](https://github.com/niktekusho/IoTDashboard/)
 
-# devices-info
+# devices-service
 
 ## Installazione/_Installation_
 
@@ -21,21 +21,21 @@ _All the following instructions work from the cloned repository root._
 ### Esecuzione/_Run_
 
 ```sh
-cd packages/devices-info
+cd packages/devices-service
 npm start
 ```
 
 ### Analisi Statica/_Static Analysis_
 
 ```sh
-cd packages/devices-info
+cd packages/devices-service
 npm run lint
 ```
 
 ### Test/_Tests_
 
 ```sh
-cd packages/devices-info
+cd packages/devices-service
 npm test
 ```
 
