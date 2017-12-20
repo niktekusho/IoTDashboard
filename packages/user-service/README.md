@@ -84,7 +84,7 @@ _You can write a `.env` file with the following environment variables._
 | Endpoint            | Metodo HTTP | Risposte                                                                           | Descrizione                                                                              |
 |---------------------|-------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | `/`                 | `GET`       | `200`: `UserData`                                                    | Ottiene tutte preferenze utente.                         |
-| `/` | `PUT`       | <ul><li>`200`: `ok`</li><li>`406`: Dettaglio errore.</li></ul> | Modifica/aggiorna le preferenze dell'utente. Nella richiesta va incluso un oggetto `UserData` (anche incompleto). |
+| `/` | `POST`       | <ul><li>`200`: `ok`</li><li>`406`: Dettaglio errore.</li></ul> | Modifica/aggiorna le preferenze dell'utente. Nella richiesta va incluso un oggetto `UserData` (anche incompleto). |
 | `/temperature`        | `GET`       | `200`: Array[UnitDefinition] | Ottiene tutte le unità di misura di temperatura supportate dal servizio. |
 
 
