@@ -49,7 +49,7 @@ _You can write a `.env` file with the following environment variables._
 | -------------------- | -------------------------------------------------------------------- | --------------------------------- |
 | `MQTT_HOST`          | Indica in quale host è in esecuzione il broker MQTT.                 | `localhost`                       |
 | `MQTT_PORT`          | Indica a quale porta risponde il broker MQTT.                        | `1883`                            |
-| `API_PORT`           | Indica la porta alla quale le api del servizio rispondono.           | `3001`                            |
+| `API_PORT`           | Indica la porta alla quale le api del servizio rispondono.           | `3000`                            |
 | `MONGO_HOST`         | Indica in quale host è in esecuzione il database MongoDB.            | `localhost`                       |
 | `MONGO_PORT`         | Indica la porta alla quale il database MongoDB risponde.             | `27018`                           |
 | `MONGO_USER`         | Indica il nome utente con cui collegarsi al database MongoDB.        | `root`                            |

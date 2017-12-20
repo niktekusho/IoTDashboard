@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+  devicesdb:
+    container_name: devicesdb
+    image: mongo:3.4
+    command: >
+      --port $MONGO_PORT
+    env_file:
+      - compose.env
+    healthcheck:
+      test: exit 0
+  devices:
+    build: .
+    ports:
+      - "5000:${API_PORT}" # HOST:CONTAINER
+    depends_on:
+      devicesdb:
+        condition: service_healthy
+    links:
+      - devicesdb
+    restart: on-failure
+    env_file:
+      - compose.env
+
+
