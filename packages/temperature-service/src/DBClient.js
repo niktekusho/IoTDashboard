@@ -8,7 +8,7 @@ function dbClient(mongoose, settings, logger) {
 	});
 
 	const db = mongoose.connection;
-	db.on('error', () => logger.error('MongoDB connection error'));
+	db.on('error', (err) => logger.error(err));
 	db.once('open', () => logger.info('DB successfully opened'));
 
 	mongoose.Promise = global.Promise;
