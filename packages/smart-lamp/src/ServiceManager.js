@@ -21,7 +21,7 @@ class ServiceManager {
 			this.client = this.mqtt.connect(brokerUrl);
 			this.client.on('connect', () => {
 				this.client.subscribe('lighting/active');
-				this.client.publish('hw_info/active', this.device.toJson());
+				this.client.publish('hw_info', this.device.toJson());
 				this.connected = true;
 				resolve(this);
 			});
