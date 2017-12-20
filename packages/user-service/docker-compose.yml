@@ -1,0 +1,28 @@
+version: '2.1'
+
+services:
+  settingsdb:
+    container_name: settingsdb
+    image: redis:4-alpine
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}" # HOST:CONTAINER
+    healthcheck:
+      test: exit 0
+    env_file:
+      - compose.env
+    command: >
+      --port ${REDIS_PORT}
+      --appendonly yes
+  user-settings:
+    container_name: user-settings
+    build: .
+    ports:
+      - "6000:6000" # HOST:CONTAINER
+    depends_on:
+      settingsdb:
+        condition: service_healthy
+    links:
+      - settingsdb
+    restart: on-failure
+    env_file:
+      - compose.env
