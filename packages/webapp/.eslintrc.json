@@ -3,8 +3,8 @@
         "es6": true,
         "node": true
     },
-		"extends": "eslint:recommended",
-		"plugins": ["jest"],
+		"extends": [ "eslint:recommended", "react/recommended"],
+		"plugins": ["jest", "react"],
     "rules": {
         "indent": [
             "error",
