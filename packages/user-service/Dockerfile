@@ -2,7 +2,7 @@ FROM mhart/alpine-node:9
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json ./
 
 RUN yarn install
 

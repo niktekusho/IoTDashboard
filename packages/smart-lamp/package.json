@@ -10,7 +10,7 @@
     "eslint": "eslint",
     "jest": "jest",
     "lint": "eslint src/ test/",
-    "start": "node src/index.js",
+    "start": "node src/index.js | pino",
     "test": "jest"
   },
   "dependencies": {

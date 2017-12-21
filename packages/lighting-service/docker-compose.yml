@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+  lightingdb:
+    container_name: lightingdb
+    image: mongo:3.4
+    healthcheck:
+      test: exit 0
+  lighting:
+    build: .
+    ports:
+      - "4000:4000" # HOST:CONTAINER
+    depends_on:
+      lightingdb:
+        condition: service_healthy
+    links:
+      - lightingdb
+    restart: on-failure
+    env_file:
+      - compose.env
+    networks:
+      - mqttbroker_default
+      - default
+networks:
+  mqttbroker_default:
+    external: true
+

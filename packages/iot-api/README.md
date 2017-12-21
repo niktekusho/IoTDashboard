@@ -57,14 +57,34 @@ port: helper('DEVICES_PORT', 3001),
 | `LIGHTING_PORT`     | Indica la porta alla quale il servizio `Lighting` risponde.                | `4000`                            |
 | `TEMPERATURES_HOST`       | Indica in quale host è in esecuzione il servizio `Temperature`.     | `localhost`                       |
 | `TEMPERATURES_PORT`       | Indica la porta alla quale il servizio `Temperature` risponde.      | `5000`                           |
+| `USER_HOST`       | Indica in quale host è in esecuzione il servizio `User`.     | `localhost`                       |
+| `USER_PORT`       | Indica la porta alla quale il servizio `User` risponde.      | `6000`                           |
+
 
 
 
 ## API del servizio/_Service's API_
 
+### API sincrona: _/devices_
+
+-  `/devices` - [info](../devices-service/README.md#api-sincrona)
+
+
 ### API sincrona: _/temperature_
 
 -  `/temperature` - [info](../temperature-service/README.md#api-sincrona)
+
+
+### API sincrona: _/lighting_
+
+-  `/lighting` - [info](../lighting-service/README.md#api-sincrona)
+
+
+### API sincrona: _/user_
+
+-  `/user` - [info](../user-service/README.md#api-sincrona)
+
+
 
 ## License
 

@@ -9,7 +9,7 @@ class DeviceClassesRoute extends DevicesRoute {
 		return super.endpoint() + '/classes';
 	}
 
-	routeFunction(res) {
+	routeFunction(req, res) {
 		const url = `${this.devicesService}/classes`;
 		this.request.get(url, function (error, response) {
 			if (error) {

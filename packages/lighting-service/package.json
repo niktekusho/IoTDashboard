@@ -10,7 +10,7 @@
     "eslint": "eslint",
     "jest": "jest",
     "lint": "eslint src/ test/",
-    "start": "node src/index.js",
+    "start": "node src/index.js | pino",
     "test": "jest"
   },
   "dependencies": {
@@ -22,7 +22,6 @@
     "pino": "^4.10.2"
   },
   "devDependencies": {
-    "dotenv": "^4.0.0",
     "eslint": "^4.12.1",
     "eslint-plugin-jest": "^21.4.1",
     "jest": "^21.2.1"

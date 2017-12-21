@@ -5,7 +5,7 @@ class AllDevicesRoute extends DevicesRoute {
 		return 'get';
 	}
 
-	routeFunction(res) {
+	routeFunction(req, res) {
 		this.request.get(this.devicesService, function (error, response) {
 			if (error) {
 				return res.status(500).send(error);

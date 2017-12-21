@@ -5,7 +5,7 @@
   "repository": "https://github.com/niktekusho/IoTDashboard",
   "author": "Nicola Dal Maso",
   "license": "MIT",
-	"private": true,
+  "private": true,
   "scripts": {
     "eslint": "eslint",
     "jest": "jest",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-pino-logger": "^3.0.1",
     "pino": "^4.10.2",

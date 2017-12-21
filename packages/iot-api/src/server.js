@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const pino = require('express-pino-logger');
 const bodyParser = require('body-parser');
@@ -6,6 +7,7 @@ function initialize(logger, routes) {
 	const expressLogger = pino({ logger });
 
 	const app = express();
+	app.use(cors());
 	app.use(expressLogger);
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: false }));

@@ -75,7 +75,7 @@ _You can write a `.env` file with the following environment variables._
 |---------------------|-------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | `/`                 | `GET`       | `200`: `Array[TemperatureData]`                                                    | Ottiene tutte le rilevazioni presenti nel database del servizio.                         |
 | `/device/:deviceId` | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'id del dispositivo specificato. |
-| `/:from/:to`        | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li><li>`406`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'intervallo di date specificato. Le date devono essere inserite in formato ISO. |
+| `/:from/:to`        | `GET`       | <ul><li>`200`: `Array[TemperatureData]`</li><li>`404`: Dettaglio errore.</li><li>`406`: Dettaglio errore.</li></ul> | Ottiene tutte le misurazioni presenti nel database per l'intervallo di date specificato. Le date devono essere inserite in formato ISO 8601 (`YYYY-MM-DD`, `YYYY-MM-DDThh:mm:ss` e `YYYY-MM-DDThh:mm:ssTZD` (TZD = Time Zone Designator)). |
 
 
 

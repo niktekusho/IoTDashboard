@@ -5,6 +5,10 @@ class TemperatureUnitsRoute extends UserRoute {
 		return 'get';
 	}
 
+	endpoint() {
+		return super.endpoint() + '/temperature';
+	}
+
 	routeFunction(req, res) {
 		this.request.get(this.userService + '/temperature' , function (error, response) {
 			if (error) {

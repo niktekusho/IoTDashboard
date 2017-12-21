@@ -7,7 +7,6 @@ class ServiceManager {
 
 	constructor(mqtt, logger, device, lampData) {
 		this.mqtt = mqtt;
-		this.hour = 0;
 		this.connected = false;
 		this.logger = logger;
 		this.device = new DeviceInfo(device);
@@ -20,7 +19,7 @@ class ServiceManager {
 		return new Promise((resolve) => {
 			this.client = this.mqtt.connect(brokerUrl);
 			this.client.on('connect', () => {
-				this.client.subscribe('lighting/active');
+				this.client.subscribe(['lighting', 'lighting/active']);
 				this.client.publish('hw_info', this.device.toJson());
 				this.connected = true;
 				resolve(this);

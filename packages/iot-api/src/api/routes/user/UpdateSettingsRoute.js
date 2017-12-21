@@ -6,7 +6,11 @@ class UpdateSettingsRoute extends UserRoute {
 	}
 
 	routeFunction(req, res) {
-		this.request.post(this.userService, function (error, response) {
+		const postOptions = {
+			url: this.userService,
+			json: req.body,
+		};
+		this.request.post(postOptions, function (error, response) {
 			if (error) {
 				return res.status(500).send(error);
 			}
