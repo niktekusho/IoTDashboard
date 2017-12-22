@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const temperatureSchema = new Schema({
 	temperature: Number,
 	device: String,
+	unit: String,
 }, { timestamps: {
 	createdAt: 'created_at',
 }});

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import NoDevicesFound from '../common/NoDevicesFound';
 import settings from '../../settings';
 
 export default class TemperaturePage extends Component {
@@ -41,7 +42,7 @@ export default class TemperaturePage extends Component {
 
 		return (
 			<div className="contentDiv">
-				{devices}
+				{devices.length === 0 ? <NoDevicesFound /> : devices}
 			</div>
 		);
 	}

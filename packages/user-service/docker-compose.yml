@@ -17,7 +17,7 @@ services:
     container_name: user-settings
     build: .
     ports:
-      - "6000:6000" # HOST:CONTAINER
+      - "$API_PORT:$API_PORT" # HOST:CONTAINER
     depends_on:
       settingsdb:
         condition: service_healthy

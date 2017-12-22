@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/ping', (req, res) => {
+	res.send('pong');
+});
+
 router.get('/device/:deviceId', (req, res) => {
 	const deviceId = req.params.deviceId;
 	devices.find({ deviceId }, (err, devices) => {

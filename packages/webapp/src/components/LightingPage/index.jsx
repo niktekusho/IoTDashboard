@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import settings from '../../settings';
+import NoDevicesFound from '../common/NoDevicesFound';
 
 import OnOffSwitch from '../common/OnOffSwitch';
 
@@ -48,7 +49,7 @@ export default class LightingPage extends Component {
 
 		return (
 			<div>
-				{devices}
+				{devices.length === 0 ? <NoDevicesFound /> : devices}
 			</div>
 		);
 	}

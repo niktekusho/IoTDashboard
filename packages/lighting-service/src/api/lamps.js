@@ -15,6 +15,10 @@ function API(mqtt) {
 		});
 	});
 
+	router.get('/ping', (req, res) => {
+		res.send('pong');
+	});
+
 	router.get('/device/:deviceId', (req, res) => {
 		const deviceId = req.params.deviceId;
 		LightingDevice.find({ device: deviceId }, (err, lightingDevices) => {

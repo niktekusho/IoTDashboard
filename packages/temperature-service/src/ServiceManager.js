@@ -30,6 +30,7 @@ class ServiceManager {
 		const temperatureModel = new TemperatureModel({
 			temperature: data.temperature,
 			device: data.device,
+			unit: data.unit,
 		});
 		temperatureModel.save((err) => {
 			if (err) {

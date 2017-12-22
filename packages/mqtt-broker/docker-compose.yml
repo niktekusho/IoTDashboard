@@ -5,7 +5,7 @@ services:
     container_name: mqttdb
     image: redis:4-alpine
     ports:
-      - "${PERSISTANCE_PORT}:6379" # HOST:CONTAINER
+      - "6379:6379" # HOST:CONTAINER
     #environment:
     #  - MONGO_INITDB_ROOT_USERNAME=mqtt
     #  - MONGO_INITDB_ROOT_PASSWORD=mqtt1234
@@ -17,7 +17,7 @@ services:
     container_name: mqttbroker
     build: .
     ports:
-      - "${MQTT_PORT}:${MQTT_PORT}"
+      - "1883:1883"
     depends_on:
       mqttdb:
         condition: service_healthy
