@@ -48,4 +48,30 @@ router.get('/:from/:to', (req, res) => {
 	});
 });
 
+router.get('/last', (req, res) => {
+	TemperatureModel.find({}, (err, temperatures) => {
+		if (err) {
+			res.status(500).send(err);
+		}
+
+		const map = new Map();
+
+		for (let temperature of temperatures) {
+			map.set(temperature.device, {
+				temperature: temperature.temperature, created_at: temperature.created_at });
+		}
+
+		const response = [];
+		for (let [sensor, value] of map) {
+			response.push({
+				device: sensor,
+				temperature: value.temperature,
+				created_at: value.created_at,
+			});
+		}
+
+		return res.send(response);
+	});
+});
+
 module.exports = router;

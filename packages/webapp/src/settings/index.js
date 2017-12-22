@@ -1,9 +1,9 @@
 function apiHost() {
-	return process.env.API_HOST || 'localhost';
+	return process.env.REACT_APP_API_HOST || 'localhost';
 }
 
 function apiPort() {
-	return process.env.API_PORT ? parseInt(process.env.API_PORT) : 8000;
+	return process.env.REACT_APP_API_PORT ? parseInt(process.env.REACT_APP_API_PORT) : 8000;
 }
 
 export default {

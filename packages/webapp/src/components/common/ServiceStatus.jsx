@@ -53,7 +53,7 @@ export default class ServiceStatus extends Component {
 				<img src={this.image} />
 				<div className="container">
 					<h4>{service}</h4>
-					Status: <div style={style} className="status"></div>
+					<div>Status: <div style={style} className="status"></div></div>
 				</div>
 			</div>
 		);

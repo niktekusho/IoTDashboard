@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import { NavLink, Route } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Route, withRouter } from 'react-router-dom';
 
 import HomePage from '../HomePage';
 import LightingPage from '../LightingPage';
@@ -8,13 +7,13 @@ import SettingsPage from '../SettingsPage';
 import TemperaturePage from '../TemperaturePage';
 import DevicesPage from '../DevicesPage';
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 const App = () => (
 	<div>
 		<nav>
-			<NavLink to="/">Home</NavLink>
+			<NavLink exact to="/">Home</NavLink>
 			<NavLink to="/devices">Devices</NavLink>
 			<NavLink to="/lighting">Lighting</NavLink>
 			<NavLink to="/temperature">Temperature</NavLink>
@@ -30,4 +29,4 @@ const App = () => (
 	</div>
 );
 
-export default App;
+export default withRouter(App);

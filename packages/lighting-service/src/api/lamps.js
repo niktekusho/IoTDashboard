@@ -7,6 +7,10 @@ function API(mqtt) {
 
 	router.get('/', (req, res) => {
 		LightingDevice.find({}, (err, lightingDevices) => {
+			if (err) {
+				res.status(500).send(err);
+			}
+
 			return res.send(lightingDevices);
 		});
 	});
@@ -59,6 +63,32 @@ function API(mqtt) {
 				return res.send('ok');
 			}
 			return res.status(404).send('DeviceId Not found!');
+		});
+	});
+
+	router.get('/last', (req, res) => {
+		LightingDevice.find({}, (err, lightingDevices) => {
+			if (err) {
+				res.status(500).send(err);
+			}
+
+			const map = new Map();
+
+			for (let light of lightingDevices) {
+				map.set(light.device, {
+					state: light.state, created_at: light.created_at });
+			}
+
+			const response = [];
+			for (let [lamp, value] of map) {
+				response.push({
+					device: lamp,
+					state: value.state,
+					created_at: value.created_at,
+				});
+			}
+
+			return res.send(response);
 		});
 	});
 

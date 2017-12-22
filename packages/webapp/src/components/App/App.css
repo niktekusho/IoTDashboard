@@ -10,6 +10,10 @@ nav {
   margin-left: 25%;
 }
 
+.contentDiv {
+  margin-left: 8px;
+}
+
 nav a {
   text-decoration: none;
   color: white;

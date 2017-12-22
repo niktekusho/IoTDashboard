@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import settings from '../../settings';
 
-export default class LightingPage extends Component {
+export default class TemperaturePage extends Component {
 	constructor(props) {
 		super(props);
-		this.url = `${settings.api.url}/temperature`;
+		this.url = `${settings.api.url}/temperature/last`;
 
 		this.state = {
-			temperatureDevices: new Map(),
+			temperatureDevices: [],
 		};
 	}
 
@@ -16,35 +16,31 @@ export default class LightingPage extends Component {
 		fetch(this.url)
 			.then(result => result.json())
 			.then(data => {
-				const map = new Map();
-				for (let temperatureData of data) {
-					const { device, temperature, created_at } = temperatureData;
-					map.set(device, { temperature, created_at });
-				}
 				this.setState({
-					temperatureDevices: map,
+					temperatureDevices: data,
 				});
 			});
 	}
 
 	render() {
 		const devices = [];
-		for (let [deviceId, temperatureData] of this.state.temperatureDevices) {
+		for (let temperatureData of this.state.temperatureDevices) {
 			// TODO add measure unit
 			const date = new Date(temperatureData.created_at);
 			const temperature = temperatureData.temperature.toFixed(1);
+			const deviceId = temperatureData.device;
 			const device = (
-				<div className="card">
+				<div className="card" key={deviceId}>
 					<h4>{deviceId}</h4>
 					<p>Temperature: {temperature} °C</p>
 					<p>Last Measurement: {date.toLocaleString('it')}</p>
 				</div>
-			)
+			);
 			devices.push(device);
 		}
 
 		return (
-			<div>
+			<div className="contentDiv">
 				{devices}
 			</div>
 		);
