@@ -1,0 +1,621 @@
+{
+	"info": {
+		"name": "iot",
+		"_postman_id": "6bfab7e4-0f9b-c25e-66a9-488b8c13d247",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gateway",
+			"description": "",
+			"item": [
+				{
+					"name": "to temperature service",
+					"description": "",
+					"item": [
+						{
+							"name": "gateway all temperatures",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/temperature/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"temperature",
+										""
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "gateway temperatures in range",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/temperature/2017-12-20T10:00:00/2017-12-20T22:00:00",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"temperature",
+										"2017-12-20T10:00:00",
+										"2017-12-20T22:00:00"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "gateway temperature from sensor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/temperature/device/ByjD8SdGG",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"temperature",
+										"device",
+										"ByjD8SdGG"
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						},
+						{
+							"name": "gateway last temperature readings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/temperature/last",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"temperature",
+										"last"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "to devices service",
+					"description": "",
+					"item": [
+						{
+							"name": "gateway all devices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/devices/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"devices",
+										""
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						},
+						{
+							"name": "gateway devices by class",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/devices/classes/lighting",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"devices",
+										"classes",
+										"lighting"
+									]
+								},
+								"description": "gateway devices by class"
+							},
+							"response": []
+						},
+						{
+							"name": "gateway device classes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/devices/classes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"devices",
+										"classes"
+									]
+								},
+								"description": "gateway devices classes"
+							},
+							"response": []
+						},
+						{
+							"name": "gateway device detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/devices/device/rkc9YZuMf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"devices",
+										"device",
+										"rkc9YZuMf"
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "to user service",
+					"description": "",
+					"item": [
+						{
+							"name": "gateway settings available temperature units",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/user/temperature",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"temperature"
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						},
+						{
+							"name": "gateway user settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8000/user/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										""
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						},
+						{
+							"name": "gateway save user settings",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"test_TEST\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/user/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										""
+									]
+								},
+								"description": "gateway all devices "
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "temperature service",
+			"description": "",
+			"item": [
+				{
+					"name": "temperatures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								""
+							]
+						},
+						"description": "devices all"
+					},
+					"response": []
+				},
+				{
+					"name": "last temperature sensors reading",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/last",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"last"
+							]
+						},
+						"description": "devices all"
+					},
+					"response": []
+				},
+				{
+					"name": "temperatures in range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/2017-12-20T00:00:00/2017-12-20T20:22:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"2017-12-20T00:00:00",
+								"2017-12-20T20:22:00"
+							]
+						},
+						"description": "devices all"
+					},
+					"response": []
+				},
+				{
+					"name": "temperatures from sensor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:5000/device/ByjD8SdGG",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"device",
+								"ByjD8SdGG"
+							]
+						},
+						"description": "devices all"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "devices service",
+			"description": "",
+			"item": [
+				{
+					"name": "all devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								""
+							]
+						},
+						"description": "devices device detail"
+					},
+					"response": []
+				},
+				{
+					"name": "all devices by class",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/classes/lighting",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"classes",
+								"lighting"
+							]
+						},
+						"description": "devices device detail"
+					},
+					"response": []
+				},
+				{
+					"name": "all device classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"classes"
+							]
+						},
+						"description": "devices device detail"
+					},
+					"response": []
+				},
+				{
+					"name": "device details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/device/ByB6xB_Gz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"device",
+								"ByB6xB_Gz"
+							]
+						},
+						"description": "devices device detail"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user service",
+			"description": "",
+			"item": [
+				{
+					"name": "all user settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:6000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "all temperature units",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:6000/temperature",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								"temperature"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "save user settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:6000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6000",
+							"path": [
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lighting service",
+			"description": "",
+			"item": [
+				{
+					"name": "all lights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:4000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "last lights readings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:4000/last",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"last"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "switch light",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:4000/last",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"last"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
