@@ -58,6 +58,15 @@
 			{
         "type": "node",
         "request": "launch",
+        "name": "Test Lighting Service",
+				"program": "${workspaceFolder}/packages/lighting-service/node_modules/jest/bin/jest.js",
+				"args": [
+					"-i"
+				]
+			},
+			{
+        "type": "node",
+        "request": "launch",
         "name": "Test TemperatureData",
 				"program": "${workspaceFolder}/packages/temperature-data/node_modules/jest/bin/jest.js",
 				"args": [

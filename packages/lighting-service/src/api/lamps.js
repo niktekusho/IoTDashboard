@@ -1,9 +1,11 @@
 const Router = require('express').Router;
 
-const LightingDevice = require('../LightData');
+const LightingDevice = require('../LampModel');
 
-function API(mqtt) {
+module.exports = (app, mqtt) => {
 	const router = Router();
+
+	app.use('/', router);
 
 	router.get('/', (req, res) => {
 		LightingDevice.find({}, (err, lightingDevices) => {
@@ -95,8 +97,4 @@ function API(mqtt) {
 			return res.send(response);
 		});
 	});
-
-	return router;
-}
-
-module.exports = API;
+};

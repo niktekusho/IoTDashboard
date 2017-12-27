@@ -1,4 +1,4 @@
-const LightData = require('./LightData');
+const LightData = require('./LampModel');
 
 class ServiceManager {
 
