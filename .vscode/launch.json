@@ -76,6 +76,15 @@
 			{
 				"type": "node",
 				"request": "launch",
+				"name": "Test DeviceService",
+				"program": "${workspaceRoot}/packages/devices-service/node_modules/jest/bin/jest.js",
+				"args": [
+					"-i"
+				]
+			},
+			{
+				"type": "node",
+				"request": "launch",
 				"name": "Test Smart Lamp",
 				"program": "${workspaceRoot}/packages/smart-light-bulb/node_modules/jest/bin/jest.js",
 				"args": [

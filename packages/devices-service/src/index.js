@@ -3,6 +3,7 @@ const pino = require('pino');
 const express = require('express');
 const bodyParser = require('body-parser');
 const pinoExpress = require('express-pino-logger');
+const mongoose = require('mongoose');
 
 const ServiceManager = require('./ServiceManager');
 const DBClient = require('./DBClient');
@@ -17,7 +18,8 @@ app.use(expressLogger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', devicesAPI);
+// mount endpoints
+devicesAPI(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,7 +44,7 @@ app.listen(settings.api_port, () => {
 	logger.info(`Devices Info service started at: ${settings.api_port}`);
 });
 
-DBClient(settings, logger);
+DBClient(mongoose, settings, logger);
 
 const service = new ServiceManager(mqtt, logger);
 const url = `${settings.host}:${settings.port}`;

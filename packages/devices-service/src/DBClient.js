@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+function dbClient(mongoose, settings, logger) {
+	mongoose.Promise = global.Promise;
 
-function dbClient(settings, logger) {
 	mongoose.connect(settings.db.url, { useMongoClient: true }, (error) => {
 		if (error) {
 			throw error;
@@ -12,8 +12,6 @@ function dbClient(settings, logger) {
 	const db = mongoose.connection;
 	db.on('error', () => logger.error('MongoDB connection error'));
 	db.once('open', () => logger.info('DB successfully opened'));
-
-	mongoose.Promise = global.Promise;
 }
 
 
