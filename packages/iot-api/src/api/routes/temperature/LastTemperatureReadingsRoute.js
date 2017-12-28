@@ -20,9 +20,9 @@ class LastTemperatureReadingsRoute extends TemperatureRoute {
 			this.requestSettings().then((userTemperatureUnit) => {
 				for (let index in temperatureDevices) {
 					const temperatureDevice = temperatureDevices[index];
-					console.log(temperatureDevice);
+					console.log(temperatureDevice); // eslint-disable-line
 					if (temperatureDevice.unit !== userTemperatureUnit) {
-						console.log('trying convertion');
+						console.log('trying convertion'); // eslint-disable-line
 						const settingsUrl = `http://${this.settings.user.host}:${this.settings.user.port}/convert`;
 						const postObj = {
 							from: temperatureDevice.unit,

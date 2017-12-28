@@ -1,5 +1,3 @@
-import { resolve } from 'url';
-
 const Route = require('../Route');
 
 class TemperaturesRoute extends Route {
@@ -32,7 +30,7 @@ class TemperaturesRoute extends Route {
 		for (let index in temperatureDevices) {
 			const temperatureDevice = temperatureDevices[index];
 			if (temperatureDevice.unit !== userTemperatureUnit) {
-				console.log('trying convertion');
+				console.log('trying convertion'); // eslint-disable-line
 				requests.push(this.convertTemperature(temperatureDevice.unit, userTemperatureUnit, temperatureDevice.temperature));
 			}
 		}
