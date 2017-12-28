@@ -14,5 +14,7 @@ module.exports = {
 	},
 	zero: process.env.SENSOR_ZERO || 0,
 	resolution: process.env.SENSOR_RESOLUTION || 0.001,
-	frequency: process.env.SENSOR_FREQUENCY_RESPONSE || 1,
+	frequency: process.env.SENSOR_FREQUENCY_RESPONSE || 0.1,
+
+	unit: process.env.SENSOR_UNIT || 'C',
 };

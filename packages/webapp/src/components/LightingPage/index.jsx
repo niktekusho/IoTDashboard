@@ -32,15 +32,22 @@ export default class LightingPage extends Component {
 
 	render() {
 		const devices = [];
+		let index = 0;
 		for (let lightData of this.state.lamps) {
-			// TODO add measure unit
+			// const date = new Date(lightData.created_at);
+			// const isOn = lightData.state.isOn;
+			// const deviceId = lightData.device;
+			// const device = (
+			// 	<div className="card" key={deviceId}>
+			// 		<h4>{deviceId}</h4>
+			// 		<OnOffSwitch isOn={isOn} deviceId={deviceId} onSwitch={(deviceId) => this.onSwitchHandler(deviceId)} />
+			// 		<p>Last Measurement: {date.toLocaleString('it')}</p>
+			// 	</div>
+			// );
 			const date = new Date(lightData.created_at);
-			const isOn = lightData.state.isOn;
-			const deviceId = lightData.device;
 			const device = (
-				<div className="card" key={deviceId}>
-					<h4>{deviceId}</h4>
-					<OnOffSwitch isOn={isOn} deviceId={deviceId} onSwitch={(deviceId) => this.onSwitchHandler(deviceId)} />
+				<div className="card" key={lightData.device}>
+					<h4>Lamp {++index}</h4>
 					<p>Last Measurement: {date.toLocaleString('it')}</p>
 				</div>
 			);

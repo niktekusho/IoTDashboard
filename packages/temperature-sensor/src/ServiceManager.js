@@ -11,6 +11,7 @@ class ServiceManager {
 		this.connected = false;
 		this.logger = logger;
 		this.device = new DeviceInfo(device);
+		this.unit = device.unit;
 		this.device.SensorSpec = new SensorSpec(device);
 	}
 
@@ -34,7 +35,10 @@ class ServiceManager {
 	}
 
 	start() {
-		this.interval = setInterval(this.publish.bind(this), 1000);
+		const frequency = this.device.SensorSpec.Frequency;
+		const intervalInSeconds = 1/frequency;
+		this.logger.info('interval in seconds', intervalInSeconds);
+		this.interval = setInterval(this.publish.bind(this), intervalInSeconds * 1000);
 	}
 
 	stop() {
@@ -45,9 +49,11 @@ class ServiceManager {
 	publish() {
 		const temperature = this.getTemperature();
 		const device = this.device.DeviceId;
+		const unit = this.unit;
 		const message = JSON.stringify({
 			temperature,
 			device,
+			unit,
 		});
 		if (this.connected) {
 			this.client.publish('temperature', message);

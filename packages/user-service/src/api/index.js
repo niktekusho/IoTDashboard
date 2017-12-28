@@ -41,7 +41,7 @@ function initialize(dbClient) {
 
 		try {
 			const result = temperatureConverter.convert(value);
-			return res.send(result);
+			return res.json(result);
 		} catch(error) {
 			return res.status(500).send(error);
 		}
