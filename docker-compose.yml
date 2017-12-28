@@ -1,0 +1,123 @@
+version: '2.1'
+
+services:
+  # device service
+  devicesdb:
+    image: mongo:3.4
+    healthcheck:
+      test: exit 0
+  devices:
+    build: ./packages/devices-service/
+    ports:
+      - "3000:3000" # HOST:CONTAINER
+    depends_on:
+      devicesdb:
+        condition: service_healthy
+    links:
+      - devicesdb
+    restart: on-failure
+    env_file:
+      - devicescompose.env
+
+  # gateway service
+  gateway:
+    build: ./packages/iot-api/
+    ports:
+      - "8000:8000" # HOST:CONTAINER
+    links:
+      - devices
+      - lighting
+      - temperature
+      - users
+    env_file:
+      - gatewaycompose.env
+
+  # mqtt broker service
+  mqttdb:
+    image: redis:4-alpine
+    ports:
+      - "6379:6379" # HOST:CONTAINER
+    healthcheck:
+      test: exit 0
+  mqttbroker:
+    build: ./packages/mqtt-broker/
+    ports:
+      - "1883:1883"
+    depends_on:
+      mqttdb:
+        condition: service_healthy
+    links:
+      - mqttdb
+    restart: on-failure
+    env_file:
+     - mqttcompose.env
+
+  # lighting service
+  lightingdb:
+    image: mongo:3.4
+    healthcheck:
+      test: exit 0
+  lighting:
+    build: ./packages/lighting-service
+    ports:
+      - "4000:4000" # HOST:CONTAINER
+    depends_on:
+      lightingdb:
+        condition: service_healthy
+    links:
+      - lightingdb
+    restart: on-failure
+    env_file:
+      - lightingcompose.env
+
+  # temperature service
+  temperaturedb:
+    image: mongo:3.4
+    healthcheck:
+      test: exit 0
+  temperature:
+    build: ./packages/temperature-service/
+    ports:
+      - "5000:5000" # HOST:CONTAINER
+    depends_on:
+      temperaturedb:
+        condition: service_healthy
+    links:
+      - temperaturedb
+    restart: on-failure
+    env_file:
+     - temperaturecompose.env
+
+  # users service
+  usersdb:
+    image: redis:4-alpine
+    healthcheck:
+      test: exit 0
+    command: >
+      --appendonly yes
+  users:
+    build: ./packages/user-service
+    ports:
+      - "6000:6000" # HOST:CONTAINER
+    depends_on:
+      usersdb:
+        condition: service_healthy
+    links:
+      - usersdb
+    restart: on-failure
+    env_file:
+      - userscompose.env
+
+
+
+  # devices
+  tsensor1:
+    build: ./packages/temperature-sensor/
+    env_file:
+      - tsensor1compose.env
+  tsensor2:
+    build: ./packages/temperature-sensor/
+    env_file:
+      - tsensor2compose.env
+
+

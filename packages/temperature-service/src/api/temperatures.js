@@ -4,10 +4,8 @@ const TemperatureModel = require('../TemperatureModel');
 
 const router = Router();
 
-const defaultView = 'device temperature created_at';
-
 router.get('/', (req, res) => {
-	TemperatureModel.find({}, defaultView, (err, temperatures) => {
+	TemperatureModel.find({}, (err, temperatures) => {
 		return res.send(temperatures);
 	});
 });
@@ -18,7 +16,7 @@ router.get('/ping', (req, res) => {
 
 router.get('/device/:deviceId', (req, res) => {
 	const deviceId = req.params.deviceId;
-	TemperatureModel.find({ device: deviceId }, defaultView, (err, temperatures) => {
+	TemperatureModel.find({ device: deviceId }, (err, temperatures) => {
 		if (temperatures.length > 0) {
 			return res.send(temperatures);
 		}
@@ -44,7 +42,7 @@ router.get('/:from/:to', (req, res) => {
 		},
 	};
 
-	TemperatureModel.find(filter, defaultView, (err, temperatures) => {
+	TemperatureModel.find(filter, (err, temperatures) => {
 		if (temperatures.length > 0) {
 			return res.send(temperatures);
 		}
@@ -62,7 +60,7 @@ router.get('/last', (req, res) => {
 
 		for (let temperature of temperatures) {
 			map.set(temperature.device, {
-				temperature: temperature.temperature, created_at: temperature.created_at });
+				temperature: temperature.temperature, created_at: temperature.created_at, unit: temperature.unit });
 		}
 
 		const response = [];
@@ -70,6 +68,7 @@ router.get('/last', (req, res) => {
 			response.push({
 				device: sensor,
 				temperature: value.temperature,
+				unit: value.unit,
 				created_at: value.created_at,
 			});
 		}
