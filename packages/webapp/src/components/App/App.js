@@ -6,6 +6,8 @@ import LightingPage from '../LightingPage';
 import SettingsPage from '../SettingsPage';
 import TemperaturePage from '../TemperaturePage';
 import DevicesPage from '../DevicesPage';
+import TemperatureDetailPage from '../TemperatureDetailPage';
+import LightingDetailPage from '../LightingDetailPage';
 
 // import logo from './logo.svg';
 import './App.css';
@@ -21,10 +23,12 @@ const App = () => (
 		</nav>
 		<div id="content">
 			<Route path="/" component={HomePage} exact />
-			<Route path="/devices" component={DevicesPage} />
-			<Route path="/lighting" component={LightingPage} />
-			<Route path="/temperature" component={TemperaturePage} />
-			<Route path="/settings" component={SettingsPage} />
+			<Route path="/devices" component={DevicesPage} exact />
+			<Route path="/lighting" component={LightingPage} exact />
+			<Route path="/lighting/:deviceId" component={LightingDetailPage} exact />
+			<Route path="/temperature" component={TemperaturePage} exact />
+			<Route path="/temperature/:deviceId" component={TemperatureDetailPage} exact />
+			<Route path="/settings" component={SettingsPage} exact />
 		</div>
 	</div>
 );

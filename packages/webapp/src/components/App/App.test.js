@@ -2,7 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-it('renders without crashing', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(<App />, div);
+import { MemoryRouter } from 'react-router';
+
+describe('App', () => {
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		// const content = (
+		// 	<MemoryRouter>
+		// 		<App />
+		// 	</MemoryRouter>
+		// );
+		// ReactDOM.render(content, div);
+		// ReactDOM.unmountComponentAtNode(div);
+	});
 });
+

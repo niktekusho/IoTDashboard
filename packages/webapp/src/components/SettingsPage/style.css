@@ -1,0 +1,51 @@
+#settingsPage input[type=text], #settingsPage select {
+    width: 65%;
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#settingsPage input[type=text]:focus {
+    border: 1px solid #555;
+}
+
+#settingsPage {
+    margin: auto;
+    width: 80%;
+}
+
+#settingsPage button {
+    width: 50%;
+    margin: auto;
+    padding: 16px;
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#settingsPage button:hover {
+    background-color: #DBEFDC;
+    color: #4CAF50;
+}
+
+#settingsPage label, #settingsPage input {
+    display: inline-block;
+}
+
+#settingsPage label:first-letter {
+    text-transform: uppercase;
+}
+
+#settingsPage label {
+    width: 20%;
+    text-align: right;
+}
+
+input + input {
+    float: right;
+}

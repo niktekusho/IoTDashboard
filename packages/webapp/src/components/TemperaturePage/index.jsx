@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import NoDevicesFound from '../common/NoDevicesFound';
+import DeviceCard from '../common/card/DeviceCard';
+
 import settings from '../../settings';
 
 export default class TemperaturePage extends Component {
@@ -26,16 +28,14 @@ export default class TemperaturePage extends Component {
 	render() {
 		const devices = [];
 		for (let temperatureData of this.state.temperatureDevices) {
-			// TODO add measure unit
 			const date = new Date(temperatureData.created_at);
 			const temperature = temperatureData.temperature.toFixed(1);
 			const deviceId = temperatureData.device;
 			const device = (
-				<div className="card" key={deviceId}>
-					<h4>{deviceId}</h4>
-					<p>Temperature: {temperature} °C</p>
+				<DeviceCard deviceId={deviceId} service='temperature' key={deviceId}>
+					<p>Temperature: {temperature} °{temperatureData.unit}</p>
 					<p>Last Measurement: {date.toLocaleString('it')}</p>
-				</div>
+				</DeviceCard>
 			);
 			devices.push(device);
 		}

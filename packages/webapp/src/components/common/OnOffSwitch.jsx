@@ -9,8 +9,8 @@ const OnOffSwitch = ({onSwitch, isOn, deviceId}) => (
 			name={`${deviceId}onoffswitch`}
 			className="onoffswitch-checkbox"
 			id={`${deviceId}onoffswitch`}
-			value={isOn}
-			onChange={() => onSwitch(deviceId)}
+			checked={isOn}
+			onChange={e => onSwitch(e)}
 		/>
 		<label className="onoffswitch-label" htmlFor={`${deviceId}onoffswitch`}>
 			<span className="onoffswitch-inner"></span>

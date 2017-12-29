@@ -3,6 +3,7 @@ const TemperaturesByDeviceRoute = require('./TemperaturesByDeviceRoute');
 const TemperaturesInRangeRoute = require('./TemperaturesInRangeRoute');
 const LastTemperatureReadingsRoute = require('./LastTemperatureReadingsRoute');
 const TemperatureServiceStatusRoute = require('./TemperatureServiceStatusRoute');
+const LastTemperaturesByDevice = require('./LastTemperaturesByDeviceRoute');
 
 function routes(settings) {
 	const allTemperatures = new AllTemperaturesRoute(settings);
@@ -10,6 +11,7 @@ function routes(settings) {
 	const temperaturesInRange = new TemperaturesInRangeRoute(settings);
 	const lastTemperatureReadings = new LastTemperatureReadingsRoute(settings);
 	const temperatureServiceStatus = new TemperatureServiceStatusRoute(settings);
+	const lastTemperaturesByDevice = new LastTemperaturesByDevice(settings);
 
 	return [
 		allTemperatures,
@@ -17,6 +19,7 @@ function routes(settings) {
 		temperaturesInRange,
 		lastTemperatureReadings,
 		temperatureServiceStatus,
+		lastTemperaturesByDevice,
 	];
 }
 

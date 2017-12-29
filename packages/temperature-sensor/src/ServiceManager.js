@@ -13,6 +13,15 @@ class ServiceManager {
 		this.device = new DeviceInfo(device);
 		this.unit = device.unit;
 		this.device.SensorSpec = new SensorSpec(device);
+		const resolution = this.device.SensorSpec.Resolution;
+
+		try {
+			this.decimalPlaces = resolution.toString().split('.')[1].length;
+		} catch (err) {
+			this.decimalPlaces = 0;
+		}
+
+		this.logger.info(`Since resolution is ${resolution} temperatures will be truncated after ${this.decimalPlaces} decimal places`);
 	}
 
 	connect(brokerUrl) {
@@ -50,8 +59,11 @@ class ServiceManager {
 		const temperature = this.getTemperature();
 		const device = this.device.DeviceId;
 		const unit = this.unit;
+
+		const newTemperature = temperature.toFixed(this.decimalPlaces);
+
 		const message = JSON.stringify({
-			temperature,
+			temperature: newTemperature,
 			device,
 			unit,
 		});

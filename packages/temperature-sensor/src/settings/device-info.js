@@ -13,7 +13,7 @@ module.exports = {
 		max: process.env.SENSOR_MAX_RANGE || 50,
 	},
 	zero: process.env.SENSOR_ZERO || 0,
-	resolution: process.env.SENSOR_RESOLUTION || 0.001,
+	resolution: process.env.SENSOR_RESOLUTION || 1,
 	frequency: process.env.SENSOR_FREQUENCY_RESPONSE || 0.1,
 
 	unit: process.env.SENSOR_UNIT || 'C',

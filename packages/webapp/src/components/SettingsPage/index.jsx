@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+
 import settings from '../../settings';
+
+import './style.css';
 
 export default class SettingsPage extends Component {
 	constructor(props) {
@@ -17,10 +21,12 @@ export default class SettingsPage extends Component {
 
 	componentDidMount() {
 		fetch(this.url).then(result => result.json()).then(
-			data => this.setState({
-				user: data.user || '',
-				selectedUnits: JSON.parse(data.units),
-			})
+			data => {
+				this.setState({
+					user: data.name || '',
+					selectedUnits: JSON.parse(data.units),
+				});
+			}
 		);
 		fetch(`${this.url}/temperature`).then(result => result.json()).then(
 			data => this.setState({
@@ -44,14 +50,21 @@ export default class SettingsPage extends Component {
 
 	handleSave() {
 		fetch(this.url, {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
 			method: 'POST',
-			body: {
-				name: this.state.name,
+			body: JSON.stringify({
+				name: this.state.user,
 				units: this.state.selectedUnits,
-			}
+			})
 		}).then((response) => {
 			if (response.status === 200) {
-				console.log('ok');
+				toast.success('Settings saved!');
+			} else {
+				toast.error('Settings not saved! Check log for details.');
+				console.error(response.body); // eslint-disable-line
 			}
 		});
 	}
@@ -89,18 +102,15 @@ export default class SettingsPage extends Component {
 
 		return (
 			<div id="settingsPage">
-				<div id="userInfo">
-					<label htmlFor="userInput">User</label>
-					<input
-						type="text"
-						name="userInput"
-						value={this.state.user}
-						onChange={(event) => this.handleUsernameChange(event.target.value)}
-					/>
-				</div>
-				<div id="units">
-					{unitsToRender}
-				</div>
+				<ToastContainer />
+				<label htmlFor="userInput">User</label>
+				<input
+					type="text"
+					name="userInput"
+					value={this.state.user}
+					onChange={(event) => this.handleUsernameChange(event.target.value)}
+				/>
+				{unitsToRender}
 				<button onClick={() => this.handleSave()}>Save</button>
 			</div>
 		);

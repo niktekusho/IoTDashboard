@@ -119,5 +119,13 @@ services:
     build: ./packages/temperature-sensor/
     env_file:
       - tsensor2compose.env
+  lamp1:
+    build: ./packages/smart-lamp
+    env_file:
+      - lamp1compose.env
+  lamp2:
+    build: ./packages/smart-lamp
+    env_file:
+      - lamp2compose.env
 
 
