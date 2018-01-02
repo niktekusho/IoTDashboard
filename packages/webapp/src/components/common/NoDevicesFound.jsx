@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './NoDevicesFoundStyle.css';
+
 const NoDevicesFound = () => {
 	return (
 		<div className="noDevicesFound">

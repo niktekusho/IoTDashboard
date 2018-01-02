@@ -107,6 +107,17 @@ services:
     restart: on-failure
     env_file:
       - userscompose.env
+  webapp:
+    build:
+      context: ./packages/webapp
+      args:
+      - REACT_APP_API_HOST=localhost
+      - REACT_APP_API_PORT=8000
+    ports:
+      - "8080:80"
+    restart: on-failure
+    links:
+      - gateway
 
 
 

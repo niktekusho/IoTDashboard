@@ -4,7 +4,7 @@ FROM mhart/alpine-node:9
 RUN apk --update add dumb-init
 WORKDIR /app
 # copy project declaration files and install dependencies based on them
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json yarn.lock ./
 RUN yarn install
 
 # second stage: copy dependencies from first stage (base-X does not have npm or yarn installed)

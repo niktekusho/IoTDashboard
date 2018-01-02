@@ -27,14 +27,16 @@ export default class LightingPage extends Component {
 
 	render() {
 		const devices = [];
-		for (let lightData of this.state.lamps) {
-			const date = new Date(lightData.created_at);
-			const device = (
-				<DeviceCard deviceId={lightData.device} service='lighting' key={lightData.device}>
-					<p>Last Measurement: {date.toLocaleString('it')}</p>
-				</DeviceCard>
-			);
-			devices.push(device);
+		if (this.state.lamps != null) {
+			for (let lightData of this.state.lamps) {
+				const date = new Date(lightData.created_at);
+				const device = (
+					<DeviceCard deviceId={lightData.device} service='lighting' key={lightData.device}>
+						<p>Last Measurement: {date.toLocaleString('it')}</p>
+					</DeviceCard>
+				);
+				devices.push(device);
+			}
 		}
 
 		return (

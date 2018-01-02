@@ -25,7 +25,7 @@ The system in its core is a control center thanks to which the user is able to m
 # Prerequisiti/_Requirements_
 
 1.  Installazione di Node.js funzionante: [sito ufficiale](https://nodejs.org/)
-2.  Installazione di Docker funzionante: [sito ufficiale](https://www.docker.com/community-edition)
+2.  Installazione di Docker e Docker Compose funzionanti: [sito ufficiale](https://www.docker.com/community-edition)
 3.  Installazione di git funzionante: [sito ufficiale](https://git-scm.com/)
 4.  **Opzionale**: installazione di Yarn funzionante: [sito ufficiale](https://yarnpkg.com/en/)
 5.  **Opzionale**: installazione di Yeoman funzionante: [sito ufficiale](http://yeoman.io)
@@ -37,6 +37,19 @@ The system in its core is a control center thanks to which the user is able to m
 3.  _Working git installation_ [official site](https://git-scm.com/)
 4.  _**Optional**: Working Yarn installation_ [official site](https://yarnpkg.com/en/)
 5.  _**Optional**: Working Yeoman installation_ [official site](https://yarnpkg.com/en/)
+
+# Demo/_Quick Start_
+
+I comandi seguenti devono essere digitati in un terminale/prompt dei comandi.
+_Following instructions must be entered in a terminal/command prompt._
+
+1.  ```sh
+    git clone https://github.com/niktekusho/IoTDashboard
+    ```
+2.  ```sh
+    docker-compose up -d
+    ```
+3.  Aprire in un browser l'indirizzo/_Open in a browser the address_: [http://localhost:8080/](http://localhost:8080/)
 
 
 # Indice del repository/_Repository index_
